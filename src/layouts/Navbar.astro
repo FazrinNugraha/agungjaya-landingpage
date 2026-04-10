@@ -29,16 +29,16 @@ const navItems = [
 ];
 ---
 
-<header class="absolute inset-x-0 top-0 z-50 py-6">
+<header class="absolute lg:fixed inset-x-0 top-0 z-50 py-6 lg:pt-4 lg:pb-0 transition-all duration-300">
   <Container>
-    <nav class="w-full flex justify-between gap-6 relative">
+    <nav class="w-full flex justify-between items-center gap-6 relative lg:px-6 lg:py-3 lg:bg-white/80 lg:dark:bg-slate-900/80 lg:backdrop-blur-xl lg:rounded-[2rem] lg:shadow-[0_8px_30px_rgb(0,0,0,0.04)] lg:dark:shadow-none lg:border lg:border-slate-200/60 lg:dark:border-slate-800/60">
       <!-- logo -->
       <div class="min-w-max inline-flex relative">
         <a href="/" class="relative flex items-center gap-3">
           <div class="relative h-10 sm:h-12 w-auto overflow-hidden flex rounded-lg shadow-sm border border-box-border/50">
             <Image src={logoAgungJaya} alt="Logo Agung Jaya" width={200} height={100} class="w-auto h-full object-contain" />
           </div>
-          <div class="inline-flex text-lg sm:text-sm font-bold text-heading-1 tracking-wide">
+          <div class="inline-flex text-base sm:text-sm font-bold text-heading-1 tracking-wide">
             AGUNGJAYA ALUMINIUM
           </div>
         </a>
@@ -76,10 +76,10 @@ const navItems = [
         </div>
       </div>
 
-      <div class="min-w-max flex items-center gap-x-3">
+      <div class="min-w-max flex items-center gap-x-2 sm:gap-x-3">
         <button
           data-switch-theme
-          class="outline-none flex relative text-heading-2 rounded-full p-2 lg:p-3 border border-box-border hover:bg-slate-200 dark:hover:bg-slate-800"
+          class="outline-none flex relative text-heading-2 rounded-xl p-2 sm:p-2.5 border border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

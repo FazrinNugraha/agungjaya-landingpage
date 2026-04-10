@@ -1,6 +1,7 @@
-import visibilityDilemma from "../assets/images/visibility-dilemma.jpg";
-import engagementGap from "../assets/images/engagement-gap.jpg";
-import resultsInHibernation from "../assets/images/results-in-hibernation.jpg";
+// Deleted missing image imports
+// import visibilityDilemma from "../assets/images/visibility-dilemma.jpg";
+// import engagementGap from "../assets/images/engagement-gap.jpg";
+// import resultsInHibernation from "../assets/images/results-in-hibernation.jpg";
 
 const services = [
   {
@@ -68,7 +69,7 @@ const solutions = [
       "It's disheartening when your carefully crafted content goes unnoticed. Your potential customers are out there, but they simply can't find you amidst the digital noise.",
     solution:
       "Our targeted visibility strategies cut through the clutter, ensuring your brand is not just seen but remembered. Watch our video to see how we make your presence impossible to ignore.",
-    img: visibilityDilemma,
+    img: "",
   },
   {
     title: "Engagement Gap",
@@ -78,7 +79,7 @@ const solutions = [
       "It's frustrating to see competitors effortlessly engaging their audience while your brand struggles to spark conversations. Your content deserves better results, and we have the solution.",
     solution:
       "Our proven engagement tactics ignite conversations, turning passive viewers into active participants. Explore how we bridge the engagement gap in our video walkthrough.",
-    img: engagementGap,
+    img: "",
   },
   {
     title: "Results in Hibernation",
@@ -88,7 +89,7 @@ const solutions = [
       "It's disheartening when the metrics show little growth or impact. Your time and resources are valuable, and it's time to break free from the cycle of stagnant results.",
     solution:
       "Our data-driven approach ensures every action is purposeful, yielding measurable results. Dive into our video guide to witness how we turn social media activities into a powerful engine for your brand's success.",
-    img: resultsInHibernation,
+    img: "",
   },
 ];
 
