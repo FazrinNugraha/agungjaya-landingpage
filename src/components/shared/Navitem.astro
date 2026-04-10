@@ -6,7 +6,7 @@ export interface Props{
 const {href, text} = Astro.props
 ---
 <li>
-    <a href={href} class="duration-300 font-medium ease-linear hover:text-primary py-3">
+    <a href={href} class="block w-full text-center lg:text-left duration-300 font-medium ease-linear hover:text-secondary py-3 px-4 lg:px-0 hover:bg-slate-50 dark:hover:bg-slate-800 lg:hover:bg-transparent rounded-lg lg:rounded-none">
     {text}
     </a>
 </li>

@@ -1,9 +1,5 @@
 ---
-import Button from "../shared/Button.astro";
 import Container from "../shared/Container.astro";
-import CtaButton from "../shared/CtaButton.astro";
-import GradiantText from "../shared/GradiantText.astro";
-import Paragraph from "../shared/Paragraph.astro";
 
 export interface Props {
   className?: string;
@@ -12,27 +8,46 @@ export interface Props {
 const { className } = Astro.props;
 ---
 
-<section id="cta" class=`pb-20 ${className}`>
+<section id="cta" class={`pb-20 reveal ${className}`}>
   <Container>
-    <div
-      class="w-full relative py-8 md:py-10 px-6 md:px-8 rounded-2xl bg-gradient-to-br from-slate-100 to-zinc-200 dark:from-slate-800 dark:to-zinc-800"
-    >
-      <div class="mx-auto text-center max-w-xl md:max-w-2xl relative">
-        <h1
-          class="text-3xl/tight sm:text-4xl/tight md:text-5xl/tight
-          font-bold text-heading-1"
-        >
-          Ready to
-
-          <GradiantText> Transform </GradiantText>
-          Your
-          <GradiantText> Social Presence? </GradiantText>
+    <div class="w-full relative py-12 md:py-16 px-6 md:px-14 rounded-[2rem] bg-slate-800 dark:bg-slate-900 text-white shadow-xl shadow-slate-800/20 overflow-hidden text-center md:text-left">
+      <div class="relative z-10 max-w-4xl">
+        <h1 class="text-4xl md:text-5xl lg:text-[3.25rem] font-bold text-white leading-tight mb-6 mt-2">
+          Punya proyek yang akan datang?
         </h1>
-        <Paragraph className="pt-10 font-semibold">
-          Quick Start your Strategic Digital Marketing Campaing Today!
-        </Paragraph>
-        <div class="mx-auto max-w-md sm:max-w-xl pt-10">
-          <CtaButton />
+        <p class="text-slate-300 md:text-lg leading-relaxed max-w-3xl mb-12">
+          Hubungi kami untuk konsultasi gratis. Kami siap membantu mewujudkan hunian impian Anda dengan produk aluminium berkualitas tinggi dan pengerjaan profesional.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row flex-wrap gap-4 pt-2 w-full justify-center md:justify-start">
+          <!-- WhatsApp Button -->
+          <a href="#" aria-label="Hubungi via WhatsApp" class="inline-flex items-center justify-center w-full sm:w-max px-8 py-4 sm:py-3.5 rounded-full bg-white text-slate-900 text-base font-semibold hover:bg-slate-100 transition-all shadow-sm">
+            <svg class="w-5 h-5 mr-2.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            WhatsApp
+            <svg class="w-4 h-4 ml-2 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          
+          <!-- Instagram Button -->
+          <a href="#" aria-label="Kunjungi Instagram kami" class="inline-flex items-center justify-center w-full sm:w-max px-8 py-4 sm:py-3.5 rounded-full bg-transparent border-2 border-slate-600 text-white text-base font-semibold hover:bg-slate-700 hover:border-slate-500 transition-all">
+            <svg class="w-5 h-5 mr-2.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+            Instagram
+            <svg class="w-4 h-4 ml-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
+          
+          <!-- TikTok Button -->
+          <a href="#" aria-label="Kunjungi TikTok kami" class="inline-flex items-center justify-center w-full sm:w-max px-8 py-4 sm:py-3.5 rounded-full bg-transparent border-2 border-slate-600 text-white text-base font-semibold hover:bg-slate-700 hover:border-slate-500 transition-all">
+            <svg class="w-5 h-5 mr-2.5 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+            </svg>
+            TikTok
+            <svg class="w-4 h-4 ml-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+          </a>
         </div>
       </div>
     </div>

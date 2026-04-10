@@ -94,59 +94,78 @@ const solutions = [
 
 const faqs = [
   {
-    question: "How can social media marketing benefit my business?",
+    question: "Apa saja jenis produk aluminium yang tersedia?",
     answer:
-      "Social media marketing can significantly benefit your business by increasing brand awareness, engaging your target audience, driving website traffic, and generating leads. It also allows for direct interaction with your customers, fostering brand loyalty and providing valuable insights into consumer behavior.",
+      "Kami menyediakan berbagai produk aluminium premium meliputi pintu lipat, jendela geser, kusen, partisi kaca, railing balkon, dan kanopi. Setiap produk tersedia dalam berbagai model dan warna sesuai kebutuhan desain rumah Anda.",
   },
   {
-    question: "What sets your agency apart from others?",
+    question: "Berapa lama proses pengerjaan dari pemesanan hingga pemasangan?",
     answer:
-      "Our agency stands out through a combination of tailored strategies, data-driven decision-making, and a commitment to client collaboration. We prioritize understanding your unique business goals and offer personalized solutions that deliver measurable results.",
+      "Proses pengerjaan umumnya memakan waktu 7-14 hari kerja tergantung jenis dan jumlah produk yang dipesan. Untuk proyek besar atau custom design, estimasi waktu akan kami informasikan saat konsultasi awal.",
   },
   {
-    question: "How do you measure the success of social media campaigns?",
+    question: "Apakah produk aluminium lebih baik dari kayu?",
     answer:
-      "We employ a comprehensive approach to measure campaign success. This includes tracking key performance indicators (KPIs) such as engagement metrics, conversion rates, reach, and customer feedback. Our goal is to provide you with transparent and actionable insights into the effectiveness of your social media efforts.",
+      "Aluminium memiliki beberapa keunggulan dibanding kayu, antara lain: tahan terhadap rayap dan cuaca ekstrem, perawatan minimal, umur pakai lebih panjang, serta tampilan yang tetap modern dan elegan. Aluminium juga lebih ringan namun tetap kokoh.",
   },
   {
-    question:
-      "Can you give examples of your successful social media campaigns?",
+    question: "Apakah ada garansi untuk produk yang dipasang?",
     answer:
-      "Certainly! We have a portfolio of successful campaigns across various industries. Check out our Case Studies to see how we've helped businesses like yours achieve their social media goals.",
+      "Ya, kami memberikan garansi hingga 5 tahun untuk semua produk aluminium yang kami pasang. Garansi mencakup cacat material dan kerusakan akibat pemasangan. Kami juga menyediakan layanan perawatan berkala.",
   },
   {
-    question: "Do you offer customized social media strategies?",
+    question: "Apakah bisa request desain custom sesuai keinginan?",
     answer:
-      "Absolutely. Our team specializes in creating customized strategies tailored to your brand, industry, and target audience. We believe in the power of uniqueness, and our strategies reflect your specific goals and aspirations.",
+      "Tentu saja! Kami menerima pesanan custom untuk semua jenis produk. Tim desain kami akan membantu mewujudkan model dan ukuran sesuai kebutuhan spesifik hunian Anda. Konsultasi desain custom bisa dilakukan secara gratis.",
   },
   {
-    question: "How do you handle negative comments or reviews on social media?",
+    question: "Bagaimana cara melakukan pemesanan?",
     answer:
-      "We have a proactive approach to managing online reputation. Our social listening tools help us monitor brand mentions in real-time. In case of negative comments, we respond promptly with empathy and seek resolutions. We believe in turning challenges into opportunities for improvement.",
+      "Anda bisa menghubungi kami melalui WhatsApp, Instagram, atau TikTok yang tersedia di halaman ini. Tim kami akan melakukan survei lokasi, memberikan estimasi harga, dan memulai proses pengerjaan setelah kesepakatan.",
   },
   {
-    question: "What social media platforms do you work with?",
+    question: "Apakah melayani area di luar Jabodetabek?",
     answer:
-      "We work with a wide range of social media platforms, including but not limited to Facebook, Instagram, Twitter, LinkedIn, Pinterest, and TikTok. Our strategies are adaptable to the platforms most relevant to your target audience.",
+      "Saat ini kami fokus melayani area Jabodetabek dan sekitarnya. Untuk proyek di luar area tersebut, silakan hubungi kami terlebih dahulu untuk membahas kemungkinan pengerjaan dan biaya tambahan yang mungkin berlaku.",
   },
   {
-    question:
-      "How often will I receive reports on the performance of my social media campaigns?",
+    question: "Berapa kisaran harga produk aluminium?",
     answer:
-      "We provide regular and detailed reports on the performance of your social media campaigns. The frequency of reporting can be customized based on your preferences, with options for weekly, bi-weekly, or monthly updates.",
-  },
-  {
-    question:
-      "Is there ongoing support if I have questions or need adjustments to my strategy?",
-    answer:
-      "Absolutely. We offer ongoing support to address any questions or concerns you may have. Our team is readily available to assist you and can make adjustments to your strategy as needed to ensure it aligns with your evolving business goals.",
-  },
-  {
-    question:
-      "Can I see a demo or get a consultation before deciding to work with your agency?",
-    answer:
-      "Certainly! We offer free consultations and personalized demos to showcase our approach, discuss your needs, and determine how we can best support your business. Contact us to schedule a consultation.",
+      "Harga bervariasi tergantung jenis produk, ukuran, dan model yang dipilih. Kami menawarkan konsultasi dan survei gratis untuk memberikan estimasi harga yang akurat. Hubungi kami untuk mendapatkan penawaran terbaik.",
   },
 ];
 
-export { services, solutions, faqs };
+const products = [
+  {
+    title: "Pintu Lipat Aluminium",
+    description: "Desain minimalis dan modern untuk sekat ruangan yang elegan dan fleksibel. Mengoptimalkan bukaan ruang.",
+    image: "/assets/images/placeholder.jpg",
+  },
+  {
+    title: "Jendela Casement",
+    description: "Bukaan maksimal untuk sirkulasi udara terbaik dengan sistem penguncian ganda yang aman dan kedap suara.",
+    image: "/assets/images/placeholder.jpg",
+  },
+  {
+    title: "Partisi Kaca Frameless",
+    description: "Ciptakan kesan luas dan mewah pada ruangan dengan partisi kaca tanpa bingkai kelas premium.",
+    image: "/assets/images/placeholder.jpg",
+  },
+  {
+    title: "Kitchen Set Aluminium",
+    description: "Tahan rayap dan anti air, pilihan paling tepat untuk dapur modern yang awet dan sangat mudah dibersihkan.",
+    image: "/assets/images/placeholder.jpg",
+  },
+  {
+    title: "Kanopi Kaca Tempered",
+    description: "Perlindungan maksimal dengan pencahayaan alami yang tetap optimal untuk area carport atau teras.",
+    image: "/assets/images/placeholder.jpg",
+  },
+  {
+    title: "Pintu Sliding Kaca",
+    description: "Solusi hemat ruang dengan rel atas premium yang pergerakannya halus dan tanpa suara saat digeser.",
+    image: "/assets/images/placeholder.jpg",
+  },
+];
+
+export { services, solutions, faqs, products };

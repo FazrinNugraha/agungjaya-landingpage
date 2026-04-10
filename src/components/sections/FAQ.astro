@@ -18,10 +18,10 @@ export interface Props {
 const { className } = Astro.props;
 ---
 
-<section id="faq" class=`${className}`>
+<section id="faq" class={`reveal ${className}`}>
   <Container className="">
     <div class="text-center  max-w-3xl mx-auto">
-      <Title> Frequenty Asked <GradiantText>Questions</GradiantText></Title>
+      <Title> Pertanyaan Yang <GradiantText>Sering Ditanyakan</GradiantText></Title>
     </div>
 
     <div

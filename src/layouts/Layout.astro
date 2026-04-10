@@ -17,9 +17,9 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="Agency template made with ASTROJS and TAILWINDCSS"
+      content="AluminiumPro — Penyedia produk aluminium premium untuk pintu, jendela, dan partisi rumah. Desain elegan, kualitas tahan lama."
     />
-    <title>Agency template - {title}</title>
+    <title>AluminiumPro - {title}</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -121,5 +121,18 @@ const { title } = Astro.props;
         navbar.style.height = "0px";
       });
     }
+  </script>
+  <script>
+    // Scroll Reveal Animation
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
   </script>
 </html>
