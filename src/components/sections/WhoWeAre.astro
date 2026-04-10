@@ -3,84 +3,106 @@ import Container from "../shared/Container.astro";
 import Paragraph from "../shared/Paragraph.astro";
 
 export interface Props {
-    className?: string;
+  className?: string;
 }
 
 const { className } = Astro.props;
 
 const features = [
-    "Pusat Kota", "Hunian Residensial",
-    "Bangunan Kokoh", "Ukuran Presisi",
-    "Kenyamanan Seumur Hidup", "Lokasi Strategis",
+  "Renovasi Rumah",
+  "Hunian Residensial",
+  "Pembangunan Rumah",
+  "Kebutuhan Kantor",
+  "Kebutuhan Ruko",
+  "Lokasi Komersial",
 ];
 ---
 
 <section id="about" class={`relative reveal ${className}`}>
-    <Container>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
-            <!-- Left Side -->
-            <div class="flex flex-col gap-6 justify-center">
-                <div>
-                    <span class="text-primary font-bold text-sm md:text-base tracking-wide flex items-center gap-2 mb-2">
-                        Tentang Kami
-                    </span>
-                    <h2 class="text-heading-1 text-3xl sm:text-4xl md:text-[2.75rem] font-bold mt-2 leading-[1.2]">
-                        Telah Dipercaya & <br class="hidden lg:block"/> Bekerja Sama Dengan <br class="hidden lg:block"/> Berbagai Kalangan
-                    </h2>
-                </div>
-                
-                <div class="space-y-6 mt-4">
-                    <Paragraph>
-                        Dengan pengalaman lebih dari 25 tahun di industri aluminium, kami telah menyelesaikan ribuan proyek perumahan dan komersial di seluruh Indonesia. Komitmen kami terhadap kualitas dan ketepatan waktu menjadikan kami mitra terpercaya.
-                    </Paragraph>
-                    <Paragraph>
-                        Setiap produk kami dirancang dengan material pilihan dan pengerjaan presisi untuk memastikan daya tahan serta estetika yang sempurna.
-                    </Paragraph>
-                </div>
-            </div>
-
-            <!-- Right Side -->
-            <div class="flex flex-col gap-10 md:gap-12 lg:pt-4">
-                <!-- Top: 2 Images Side by Side -->
-                <div class="flex gap-4 sm:gap-6">
-                    <div class="w-1/2 aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 relative group shadow-sm">
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-primary transition-transform group-hover:scale-105">
-                             <div class="p-3 bg-secondary/10 dark:bg-secondary/20 rounded-full mb-3">
-                                 <svg class="w-8 h-8 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                             </div>
-                            <span class="text-[11px] sm:text-xs font-semibold text-slate-500">Upload Gambar 1</span>
-                        </div>
-                    </div>
-                    <div class="w-1/2 aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 relative group shadow-sm">
-                        <div class="absolute inset-0 flex flex-col items-center justify-center transition-transform group-hover:scale-105">
-                             <div class="p-3 bg-primary/10 dark:bg-primary/20 rounded-full mb-3">
-                                 <svg class="w-8 h-8 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                             </div>
-                            <span class="text-[11px] sm:text-xs font-semibold text-slate-500">Upload Gambar 2</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bottom: We Come With -->
-                <div>
-                    <h3 class="text-2xl sm:text-[1.75rem] font-bold text-heading-1 mb-8">Keunggulan Kami :</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-4">
-                        {features.map((feature) => (
-                            <div class="flex items-center gap-4">
-                                <svg class="w-6 h-6 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 3L2 12h3v8h5v-6h4v6h5v-8h3L12 3z" />
-                                </svg>
-                                <span class="text-heading-3 text-[15px] sm:text-base font-medium">{feature}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
+  <Container>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+      <!-- Left Side -->
+      <div class="flex flex-col gap-6 justify-center">
+        <div>
+          <span
+            class="text-primary font-bold text-sm md:text-base tracking-wide flex items-center gap-2 mb-2"
+          >
+            Tentang Kami
+          </span>
+          <h2
+            class="text-heading-1 text-3xl sm:text-4xl md:text-[2.75rem] font-bold mt-2 leading-[1.2]"
+          >
+            Partner Terpercaya untuk <br class="hidden lg:block" /> Kebutuhan Aluminium
+            & <br class="hidden lg:block" /> Kaca Berkualitas.
+          </h2>
         </div>
-    </Container>
-</section>
 
+        <div class="space-y-6 mt-4">
+          <Paragraph>
+            Kami adalah penyedia jasa pembuatan dan pemasangan produk aluminium
+            serta kaca yang berlokasi di Jakarta Timur. Agungjaya Aluminium
+            melayani pengerjaan kusen, pintu, jendela, hingga partisi rumah
+            dengan standar tinggi yang mengutamakan kualitas.
+          </Paragraph>
+          <Paragraph>
+            Fokus utama kami ada pada kerapian hasil pengerjaan dan kekuatan
+            struktur. Dengan tenaga kerja yang sudah terbiasa menangani berbagai
+            kondisi di lapangan, kami memastikan setiap material aluminium
+            terpasang dengan presisi dan berfungsi dengan baik selama
+            bertahun-tahun.
+          </Paragraph>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="flex flex-col gap-10 md:gap-12 lg:pt-4">
+        <!-- Top: 2 Images Side by Side -->
+        <div class="flex gap-4 sm:gap-6">
+          <div
+            class="w-1/2 aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 relative group shadow-sm"
+          >
+            <img
+              src="/products/utama.jpeg"
+              alt="Utama"
+              class="w-full h-full object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
+          <div
+            class="w-1/2 aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 relative group shadow-sm"
+          >
+            <img
+              src="/products/lagikerja.jpeg"
+              alt="Lagi Kerja"
+              class="w-full h-full object-cover transition-transform group-hover:scale-105"
+            />
+          </div>
+        </div>
+
+        <!-- Bottom: We Come With -->
+        <div>
+          <h3 class="text-2xl sm:text-[1.75rem] font-bold text-heading-1 mb-8">
+            Kami Melayani :
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-5 gap-x-4">
+            {
+              features.map((feature) => (
+                <div class="flex items-center gap-4">
+                  <svg
+                    class="w-6 h-6 text-secondary flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 3L2 12h3v8h5v-6h4v6h5v-8h3L12 3z" />
+                  </svg>
+                  <span class="text-heading-3 text-[15px] sm:text-base font-medium">
+                    {feature}
+                  </span>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

@@ -136,36 +136,83 @@ const faqs = [
   },
 ];
 
+/**
+ * =============================================================
+ *  KATALOG PRODUK - CARA MENAMBAH / MENGGANTI FOTO:
+ * =============================================================
+ *
+ *  1. Taruh foto ke folder:  public/products/
+ *     Contoh: public/products/pintu-lipat.jpg
+ *
+ *  2. Tulis nama file foto di bawah pada bagian "image":
+ *     image: "pintu-lipat.jpg"
+ *
+ *  3. Kalau belum ada fotonya, kosongkan saja:
+ *     image: ""
+ *
+ *  SELESAI! Tidak perlu import apapun.
+ * =============================================================
+ */
 const products = [
   {
     title: "Pintu Lipat Aluminium",
-    description: "Desain minimalis dan modern untuk sekat ruangan yang elegan dan fleksibel. Mengoptimalkan bukaan ruang.",
-    image: "/assets/images/placeholder.jpg",
+    description:
+      "Desain minimalis dan modern untuk sekat ruangan yang elegan dan fleksibel. Mengoptimalkan bukaan ruang.",
+    image: "fotohero.jpeg",
   },
   {
     title: "Jendela Casement",
-    description: "Bukaan maksimal untuk sirkulasi udara terbaik dengan sistem penguncian ganda yang aman dan kedap suara.",
-    image: "/assets/images/placeholder.jpg",
+    description:
+      "Bukaan maksimal untuk sirkulasi udara terbaik dengan sistem penguncian ganda yang aman dan kedap suara.",
+    image: "tester.jpg",
   },
   {
     title: "Partisi Kaca Frameless",
-    description: "Ciptakan kesan luas dan mewah pada ruangan dengan partisi kaca tanpa bingkai kelas premium.",
-    image: "/assets/images/placeholder.jpg",
+    description:
+      "Ciptakan kesan luas dan mewah pada ruangan dengan partisi kaca tanpa bingkai kelas premium.",
+    image: "",
   },
   {
     title: "Kitchen Set Aluminium",
-    description: "Tahan rayap dan anti air, pilihan paling tepat untuk dapur modern yang awet dan sangat mudah dibersihkan.",
-    image: "/assets/images/placeholder.jpg",
+    description:
+      "Tahan rayap dan anti air, pilihan paling tepat untuk dapur modern yang awet dan sangat mudah dibersihkan.",
+    image: "",
   },
   {
     title: "Kanopi Kaca Tempered",
-    description: "Perlindungan maksimal dengan pencahayaan alami yang tetap optimal untuk area carport atau teras.",
-    image: "/assets/images/placeholder.jpg",
+    description:
+      "Perlindungan maksimal dengan pencahayaan alami yang tetap optimal untuk area carport atau teras.",
+    image: "",
   },
   {
     title: "Pintu Sliding Kaca",
-    description: "Solusi hemat ruang dengan rel atas premium yang pergerakannya halus dan tanpa suara saat digeser.",
-    image: "/assets/images/placeholder.jpg",
+    description:
+      "Solusi hemat ruang dengan rel atas premium yang pergerakannya halus dan tanpa suara saat digeser.",
+    image: "",
+  },
+  {
+    title: "Jendela Jalusi Aluminium",
+    description:
+      "Sirkulasi udara maksimal tanpa mengorbankan privasi. Sangat cocok untuk area kelembapan tinggi seperti kamar mandi.",
+    image: "",
+  },
+  {
+    title: "Kusen Aluminium Urat Kayu",
+    description:
+      "Kombinasi sempurna antara estetika alami kayu dengan ketahanan dan kekuatan struktur aluminium.",
+    image: "",
+  },
+  {
+    title: "Pintu Kaca Double",
+    description:
+      "Pintu kaca elegan bergaya perkantoran/komersial modern dengan handle stainless steel kualitas tinggi.",
+    image: "",
+  },
+  {
+    title: "Railing Tangga Aluminium",
+    description:
+      "Pegangan tangga minimalis yang kuat, anti karat, dan dirancang khusus untuk keselamatan keluarga.",
+    image: "",
   },
 ];
 

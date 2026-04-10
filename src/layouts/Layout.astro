@@ -91,6 +91,16 @@ const { title } = Astro.props;
     const overlayNav = document.querySelector(
       "[data-nav-overlay]"
     ) as HTMLDivElement;
+    
+    const closeMenu = () => {
+      if (toggleMenu) {
+        toggleMenu.setAttribute("data-open-nav", "false");
+        overlayNav.setAttribute("data-is-visible", "false");
+        document.body.classList.remove("!overflow-y-hidden");
+        navbar.style.height = "0px";
+      }
+    };
+
     if (toggleMenu) {
       toggleMenu.addEventListener("click", (e) => {
         e.preventDefault();
@@ -100,25 +110,21 @@ const { title } = Astro.props;
           document.body.classList.add("!overflow-y-hidden");
           navbar.style.height = `${navbar.scrollHeight}px`;
         } else {
-          toggleMenu.setAttribute("data-open-nav", "false");
-          overlayNav.setAttribute("data-is-visible", "false");
-          document.body.classList.remove("!overflow-y-hidden");
-          navbar.style.height = "0px";
+          closeMenu();
         }
       });
 
-      navbar.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px";
+      // Close menu when clicking on nav links
+      const navLinks = navbar.querySelectorAll("a[href^='#']");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          // Delay closing menu slightly to ensure navigation works
+          setTimeout(closeMenu, 100);
+        });
       });
 
       overlayNav.addEventListener("click", () => {
-        toggleMenu.setAttribute("data-open-nav", "false");
-        overlayNav.setAttribute("data-is-visible", "false");
-        document.body.classList.remove("!overflow-y-hidden");
-        navbar.style.height = "0px";
+        closeMenu();
       });
     }
   </script>
