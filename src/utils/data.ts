@@ -95,34 +95,9 @@ const solutions = [
 
 const faqs = [
   {
-    question: "Apa saja jenis produk aluminium yang tersedia?",
-    answer:
-      "Kami menyediakan berbagai produk aluminium premium meliputi pintu lipat, jendela geser, kusen, partisi kaca, railing balkon, dan kanopi. Setiap produk tersedia dalam berbagai model dan warna sesuai kebutuhan desain rumah Anda.",
-  },
-  {
-    question: "Berapa lama proses pengerjaan dari pemesanan hingga pemasangan?",
-    answer:
-      "Proses pengerjaan umumnya memakan waktu 7-14 hari kerja tergantung jenis dan jumlah produk yang dipesan. Untuk proyek besar atau custom design, estimasi waktu akan kami informasikan saat konsultasi awal.",
-  },
-  {
-    question: "Apakah produk aluminium lebih baik dari kayu?",
-    answer:
-      "Aluminium memiliki beberapa keunggulan dibanding kayu, antara lain: tahan terhadap rayap dan cuaca ekstrem, perawatan minimal, umur pakai lebih panjang, serta tampilan yang tetap modern dan elegan. Aluminium juga lebih ringan namun tetap kokoh.",
-  },
-  {
-    question: "Apakah ada garansi untuk produk yang dipasang?",
-    answer:
-      "Ya, kami memberikan garansi hingga 5 tahun untuk semua produk aluminium yang kami pasang. Garansi mencakup cacat material dan kerusakan akibat pemasangan. Kami juga menyediakan layanan perawatan berkala.",
-  },
-  {
-    question: "Apakah bisa request desain custom sesuai keinginan?",
-    answer:
-      "Tentu saja! Kami menerima pesanan custom untuk semua jenis produk. Tim desain kami akan membantu mewujudkan model dan ukuran sesuai kebutuhan spesifik hunian Anda. Konsultasi desain custom bisa dilakukan secara gratis.",
-  },
-  {
     question: "Bagaimana cara melakukan pemesanan?",
     answer:
-      "Anda bisa menghubungi kami melalui WhatsApp, Instagram, atau TikTok yang tersedia di halaman ini. Tim kami akan melakukan survei lokasi, memberikan estimasi harga, dan memulai proses pengerjaan setelah kesepakatan.",
+      "Anda bisa menghubungi kami melalui WhatsApp, Instagram, atau TikTok yang tersedia di bagian bawahhalaman ini. Tim kami akan melakukan survei lokasi, memberikan estimasi harga, dan memulai proses pengerjaan setelah kesepakatan.",
   },
   {
     question: "Apakah melayani area di luar Jabodetabek?",
@@ -130,9 +105,29 @@ const faqs = [
       "Saat ini kami fokus melayani area Jabodetabek dan sekitarnya. Untuk proyek di luar area tersebut, silakan hubungi kami terlebih dahulu untuk membahas kemungkinan pengerjaan dan biaya tambahan yang mungkin berlaku.",
   },
   {
-    question: "Berapa kisaran harga produk aluminium?",
+    question: "Apa saja jenis produk aluminium yang tersedia?",
     answer:
-      "Harga bervariasi tergantung jenis produk, ukuran, dan model yang dipilih. Kami menawarkan konsultasi dan survei gratis untuk memberikan estimasi harga yang akurat. Hubungi kami untuk mendapatkan penawaran terbaik.",
+      "Kami menyediakan berbagai produk aluminium premium meliputi pintu lipat, jendela geser, pintu utama, partisi kaca, kitchen set,sliding door swing, dan lain-lain. Setiap produk tersedia dalam berbagai model dan warna sesuai kebutuhan desain rumah Anda.",
+  },
+  {
+    question: "Berapa lama proses pengerjaan dari pemesanan hingga pemasangan?",
+    answer:
+      "Proses pengerjaan umumnya memakan waktu 2-3 hari untuk perakitan dan 1 hari untuk pemasangan bisa lebih tergantung volume pesanan. Estimasi waktu akan kami informasikan saat konsultasi awal.",
+  },
+  {
+    question: "Apa saja merk aluminium yang tersedia?",
+    answer:
+      "Kami menyediakan berbagai merk aluminium seperti YKK , Alexindo , Inkalum , Alutama , Dacon, Forta, dan lain-lain. ",
+  },
+  {
+    question: "Sistem Pembayarannya bagaimana?",
+    answer:
+      "Sistem pembayaran kami biasanya melalui DP (Uang Muka) sebagai tanda jadi setelah survei dan kesepakatan, kemudian pelunasan dilakukan setelah proses pemasangan selesai. Kami menerima pembayaran via transfer bank maupun tunai.",
+  },
+  {
+    question: "Apakah bisa request desain custom sesuai keinginan?",
+    answer:
+      "Tentu saja! Kami menerima pesanan custom untuk semua jenis produk. kami mempersilakan Anda mengirimkan referensi gambar atau model yang diinginkan saat konsultasi, sehingga tim kami dapat menyesuaikan dengan kebutuhan Anda.",
   },
 ];
 
@@ -212,6 +207,42 @@ const products = [
     title: "Railing Tangga Aluminium",
     description:
       "Pegangan tangga minimalis yang kuat, anti karat, dan dirancang khusus untuk keselamatan keluarga.",
+    image: "",
+  },
+  {
+    title: "Railing Tanggga Aluminium",
+    description:
+      "Railing balkon minimalis dengan desain modern dan finishing berkualitas tinggi.",
+    image: "",
+  },
+  {
+    title: "Pintu Kaca Tempered",
+    description:
+      "Pintu kaca tahan dampak dengan keselamatan maksimal untuk pintu masuk utama rumah modern.",
+    image: "",
+  },
+  {
+    title: "Jendela Sliding Aluminium",
+    description:
+      "Jendela slide berkualitas dengan sistem peluncur yang halus dan tahan lama untuk area hunian.",
+    image: "",
+  },
+  {
+    title: "Kusen Pintu Minimalis",
+    description:
+      "Kusen pintu dengan desain line minimalis yang cocok untuk rumah gaya kontemporer.",
+    image: "",
+  },
+  {
+    title: "Kanopi Aluminium Hollow",
+    description:
+      "Kanopi ringan namun kuat dengan desain modern untuk area outdoor yang stylish dan fungsional.",
+    image: "",
+  },
+  {
+    title: "Partisi Kaca Geser",
+    description:
+      "Partisi kaca dengan sistem geser smooth untuk fleksibilitas ruangan yang maksimal.",
     image: "",
   },
 ];

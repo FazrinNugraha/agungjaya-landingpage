@@ -1,27 +1,8 @@
 ---
 import Container from "../components/shared/Container.astro";
 import Paragraph from "../components/shared/Paragraph.astro";
-
-const footerProduk = [
-  { itemText: "Pintu Aluminium", itemLink: "#products" },
-  { itemText: "Jendela Aluminium", itemLink: "#products" },
-  { itemText: "Partisi Kaca", itemLink: "#products" },
-  { itemText: "Kusen Aluminium", itemLink: "#products" },
-];
-
-const footerLayanan = [
-  { itemText: "Konsultasi Gratis", itemLink: "#cta" },
-  { itemText: "Pemasangan", itemLink: "#cta" },
-  { itemText: "Garansi", itemLink: "#faq" },
-  { itemText: "Perawatan", itemLink: "#faq" },
-];
-
-const footerPerusahaan = [
-  { itemText: "Tentang Kami", itemLink: "#about" },
-  { itemText: "Produk", itemLink: "#products" },
-  { itemText: "FAQ", itemLink: "#faq" },
-  { itemText: "Kontak", itemLink: "#cta" },
-];
+import { Image } from "astro:assets";
+import logoAgungJaya from "../assets/images/logoAGUNGJAYA.jpeg";
 ---
 
 <div class="relative mt-16">
@@ -31,91 +12,95 @@ const footerPerusahaan = [
   <span class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-primary absolute right-1/3 top-1/3"></span>
   <span class="w-40 h-40 rounded-full bg-gradient-to-br from-blue-500 to-primary absolute left-0 top-1/3"></span>
 
-  <footer class="relative bg-gradient-to-tr from-slate-100/85 to-zinc-200/85 dark:from-slate-800/85 dark:to-zinc-800/85 pt-28 rounded-t-3xl backdrop-blur-md">
-    <Container className="pb-8 relative overflow-auto">
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 relative">
-        
-        <!-- Brand Column -->
-        <div class="col-span-2 lg:col-span-1 h-auto flex flex-col">
-          <div class="h-full">
-            <a href="/" class="relative flex items-center gap-3">
-              <div class="inline-flex text-xl font-bold tracking-wide text-heading-1">
-                AGUNG JAYA
+  <footer class="relative bg-gradient-to-tr from-slate-100/85 to-zinc-200/85 dark:from-slate-800/85 dark:to-zinc-800/85 pt-20 rounded-t-3xl backdrop-blur-md">
+    <!-- TEST COMMENT: Ini adalah komentar percobaan agar fitur Accept/Reject muncul (Silakan dicoba di tab file ini) -->
+    <Container className="relative overflow-auto">
+      <!-- Top Section -->
+      <div class="flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-20 pb-16">
+        <div class="lg:w-3/5">
+          <h2 class="text-3xl lg:text-5xl font-bold text-heading-1 mb-8 leading-tight">
+            Waktunya beralih ke desain residensial elegan, <br/>
+            <span class="text-heading-3 font-normal text-2xl lg:text-4xl mt-2 block">dengan aluminium premium</span>
+          </h2>
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-8">
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-500 text-white shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
               </div>
-            </a>
-            <Paragraph className={"mt-6"}>
-              Spesialis produk aluminium premium untuk pintu, jendela, dan partisi. Melayani area Jabodetabek dan sekitarnya.
-            </Paragraph>
-          </div>
-
-          <!-- Social Links -->
-          <div class="min-h-max flex items-center gap-4 text-heading-3 mt-8">
-            <a href="#" aria-label="WhatsApp" class="transition hover:text-primary hover:scale-110">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-              </svg>
-            </a>
-            <a href="#" aria-label="Instagram" class="transition hover:text-primary hover:scale-110">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="#" aria-label="TikTok" class="transition hover:text-primary hover:scale-110">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
-              </svg>
-            </a>
+              <span class="text-heading-3 font-medium">Berpengalaman lebih dari 10 tahun</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-6 h-6 flex items-center justify-center rounded-full bg-green-500 text-white shrink-0">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <span class="text-heading-3 font-medium">Dukungan material terkini</span>
+            </div>
           </div>
         </div>
-
-        <!-- Produk Column -->
-        <div>
-          <h3 class="text-heading-1 font-semibold text-sm mb-6">Produk</h3>
-          <ul class="space-y-4">
-            {footerProduk.map((item) => (
-              <li>
-                <a href={item.itemLink} class="text-heading-3 text-sm hover:text-primary transition">{item.itemText}</a>
-              </li>
-            ))}
-          </ul>
+        
+        <div class="lg:w-2/5 flex flex-col gap-6 lg:pl-10">
+          <Paragraph>
+            Dengan meningkatkan efektivitas desain dan fungsionalitas, penggunaan aluminium premium menjadi solusi terbaik dan ekonomis untuk bangunan Anda.
+          </Paragraph>
+          <a href="#cta" class="inline-flex justify-center items-center gap-2 px-8 py-3.5 rounded-full bg-heading-1 text-white dark:text-black hover:opacity-90 w-max font-medium transition shadow-md">
+            Hubungi kami
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
         </div>
+      </div>
 
-        <!-- Layanan Column -->
-        <div>
-          <h3 class="text-heading-1 font-semibold text-sm mb-6">Layanan</h3>
-          <ul class="space-y-4">
-            {footerLayanan.map((item) => (
-              <li>
-                <a href={item.itemLink} class="text-heading-3 text-sm hover:text-primary transition">{item.itemText}</a>
-              </li>
-            ))}
-          </ul>
+      <!-- Middle Section -->
+      <div class="flex flex-col lg:flex-row justify-between items-center gap-8 py-10 border-t border-box-border/30">
+        <div class="flex items-center gap-3">
+          <a href="/" class="relative flex items-center gap-3">
+            <div class="relative h-10 sm:h-12 w-auto overflow-hidden flex rounded-lg shadow-sm border border-box-border/50 bg-white">
+              <Image src={logoAgungJaya} alt="Logo Agung Jaya" width={200} height={100} class="w-auto h-full object-contain" />
+            </div>
+            <div class="inline-flex text-base sm:text-lg font-bold text-heading-1 tracking-wide">
+              AGUNG JAYA
+            </div>
+          </a>
         </div>
+        
+        <ul class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm font-medium text-heading-3">
+          <li><a href="#" class="hover:text-primary transition">Beranda</a></li>
+          <li><a href="#about" class="hover:text-primary transition">Tentang Kami</a></li>
+          <li><a href="#features" class="hover:text-primary transition">Fitur</a></li>
+          <li><a href="#services" class="hover:text-primary transition">Layanan</a></li>
+          <li><a href="#cta" class="hover:text-primary transition">Kontak</a></li>
+        </ul>
 
-        <!-- Perusahaan Column -->
-        <div>
-          <h3 class="text-heading-1 font-semibold text-sm mb-6">Perusahaan</h3>
-          <ul class="space-y-4">
-            {footerPerusahaan.map((item) => (
-              <li>
-                <a href={item.itemLink} class="text-heading-3 text-sm hover:text-primary transition">{item.itemText}</a>
-              </li>
-            ))}
-          </ul>
+        <div class="flex items-center gap-3 text-heading-3">
+          <a href="#" aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center transition hover:text-primary hover:bg-gray-300 dark:hover:bg-gray-600">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 5.5c0 1.56-1.14 2.83-2.83 2.83-1.68 0-2.83-1.27-2.83-2.83S.44 2.67 2.15 2.67c1.69 0 2.83 1.27 2.83 2.83zM.5 21h3.3V8.4H.5V21zm19.8-12.6c-1.78 0-3.17.98-3.71 2.05h-.05V8.4h-3.3v12.6h3.3v-7.05c0-1.89.36-3.72 2.71-3.72 2.31 0 2.34 2.16 2.34 3.84V21h3.3v-7.69c0-4.1-1.39-4.91-4.59-4.91z"></path></svg>
+          </a>
+          <a href="#" aria-label="X" class="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center transition hover:text-primary hover:bg-gray-300 dark:hover:bg-gray-600">
+             <span class="font-bold text-sm">X</span>
+          </a>
+          <a href="#" aria-label="Facebook" class="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center transition hover:text-primary hover:bg-gray-300 dark:hover:bg-gray-600">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14 21h-4v-9.5H7.5v-4H10V5.1c0-2.8 1.6-4.6 4.7-4.6 1.4 0 2.8.2 3.3.4v3.5h-2.1c-1.6 0-2 .8-2 1.9V7.5h4l-.6 4h-3.4V21z"></path></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center transition hover:text-primary hover:bg-gray-300 dark:hover:bg-gray-600">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
         </div>
       </div>
     </Container>
 
-    <div class="py-4 relative border-t border-box-border">
+    <!-- Bottom Section -->
+    <div class="py-6 relative border-t border-box-border/60">
       <Container>
-        <div class="flex justify-between items-center gap-6 text-sm text-heading-3">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-heading-3">
           <div>
-            &copy; <span id="year"></span> AGUNG JAYA. Hak cipta dilindungi.
+            &copy; <span id="year"></span> Agung Jaya. Hak cipta dilindungi.
           </div>
-          <div class="text-heading-3">
-            Dibuat dengan ❤️ di Indonesia
+          <div class="flex gap-6">
+            <a href="#" class="hover:text-primary transition">Terms of Service</a>
+            <a href="#" class="hover:text-primary transition">Privacy Policy</a>
           </div>
         </div>
       </Container>
