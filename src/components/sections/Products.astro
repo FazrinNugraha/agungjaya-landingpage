@@ -14,11 +14,11 @@ const { className } = Astro.props;
         <!-- Header: title left, description right -->
         <div class="flex flex-col items-center text-center gap-4 mb-10">
             <h2 class="text-4xl md:text-5xl font-bold text-heading-1 leading-tight">
-                Model Aluminium
-                <span class="text-primary"> Karya Kami</span>
+                Beberapa Hasil 
+                <span class="text-primary"> Pengerjaan Kami</span>
             </h2>
             <p class="text-heading-3 max-w-2xl text-sm md:text-base leading-relaxed">
-                Jelajahi berbagai model dan desain aluminium premium untuk kebutuhan hunian Anda. Kualitas unggul, desain elegan, dan pengerjaan presisi.
+                Jelajahi berbagai model dan desain aluminium premium untuk kebutuhan hunian Anda. Kualitas unggul, desain elegan, dan pengerjaan presisi.Untuk model yang tidak ada di sini bisa cek ke Instagram kami @agungjaya_aluminiumm.
             </p>
         </div>
 
@@ -60,8 +60,19 @@ const { className } = Astro.props;
                                     {product.title}
                                 </h3>
                                 <p class="text-heading-3 text-sm line-clamp-2">
-                                    Pilihan desain {product.title.toLowerCase()} minimalis dengan kualitas material yang kokoh dan tahan korosi.
+                                    {product.description}
                                 </p>
+                                <div class="mt-auto pt-4 flex">
+                                    <button 
+                                        class="text-primary text-sm font-semibold flex items-center gap-1 hover:gap-2 transition-all btn-detail outline-none"
+                                        data-title={product.title}
+                                        data-desc={product.description}
+                                        data-img={product.image || ''}
+                                    >
+                                        Lihat Detail
+                                        <svg class="w-4 h-4 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                                    </button>
+                                </div>
                             </div>
                             
                         </div>
@@ -90,6 +101,26 @@ const { className } = Astro.props;
         </div>
     )}
 
+    <!-- Product Detail Modal -->
+    <dialog id="product-modal" class="backdrop:bg-slate-900/60 p-0 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 w-[90vw] max-w-lg bg-white dark:bg-slate-900 hidden open:block custom-dialog">
+        <div class="relative flex flex-col max-h-[85vh]">
+            <button id="modal-close" class="absolute top-4 right-4 z-10 w-9 h-9 flex items-center justify-center bg-black/40 hover:bg-black/60 text-white rounded-full transition-colors backdrop-blur-md">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="w-full aspect-[4/5] sm:h-[45vh] sm:aspect-auto bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
+                <img id="modal-img" src="" alt="Product Image" class="w-full h-full object-cover" />
+                <svg id="modal-img-placeholder" class="w-12 h-12 text-slate-400 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            </div>
+            <div class="p-6 md:p-8 overflow-y-auto">
+                <h3 id="modal-title" class="text-2xl font-bold text-heading-1 mb-4"></h3>
+                <p id="modal-desc" class="text-heading-3 leading-relaxed text-sm md:text-base"></p>
+                <div class="mt-8 flex justify-end w-full">
+                    <button id="modal-close-btn" class="px-6 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-heading-2 rounded-full font-medium transition-colors">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
     <style>
         .hide-scroll-bar {
             -ms-overflow-style: none;
@@ -97,6 +128,22 @@ const { className } = Astro.props;
         }
         .hide-scroll-bar::-webkit-scrollbar {
             display: none;
+        }
+        
+        /* Modal animations */
+        .custom-dialog[open] {
+            animation: showModal 0.3s ease normal;
+        }
+        @keyframes showModal {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .custom-dialog::backdrop {
+            animation: showBackdrop 0.3s ease normal;
+        }
+        @keyframes showBackdrop {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 
@@ -108,10 +155,8 @@ const { className } = Astro.props;
             const btnNext = document.getElementById('carousel-next');
 
             if (btnPrev && btnNext && items.length > 0) {
-                // Determine width of one item + gap
                 const getScrollAmount = () => {
                     const itemWidth = (items[0] as HTMLElement).offsetWidth;
-                    // Gap is 1.5rem (24px)
                     return itemWidth + 24; 
                 };
 
@@ -123,6 +168,63 @@ const { className } = Astro.props;
                     carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
                 });
             }
+        }
+
+        // Modal Logic
+        const modal = document.getElementById('product-modal') as HTMLDialogElement;
+        const detailBtns = document.querySelectorAll('.btn-detail');
+        const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+        const modalPlaceholder = document.getElementById('modal-img-placeholder');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalClose = document.getElementById('modal-close');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        if (modal) {
+            detailBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const target = e.currentTarget as HTMLElement;
+                    const title = target.getAttribute('data-title');
+                    const desc = target.getAttribute('data-desc');
+                    const img = target.getAttribute('data-img');
+
+                    if (modalTitle) modalTitle.textContent = title;
+                    if (modalDesc) modalDesc.textContent = desc;
+
+                    if (img) {
+                        modalImg.src = `/products/${img}`;
+                        modalImg.classList.remove('hidden');
+                        if (modalPlaceholder) modalPlaceholder.classList.add('hidden');
+                    } else {
+                        modalImg.src = '';
+                        modalImg.classList.add('hidden');
+                        if (modalPlaceholder) modalPlaceholder.classList.remove('hidden');
+                    }
+
+                    modal.showModal();
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            const closeAction = () => {
+                modal.close();
+                document.body.style.overflow = '';
+            };
+            
+            if (modalClose) modalClose.addEventListener('click', closeAction);
+            if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAction);
+            
+            modal.addEventListener('click', (e) => {
+                const rect = modal.getBoundingClientRect();
+                if (
+                    e.clientX < rect.left ||
+                    e.clientX > rect.right ||
+                    e.clientY < rect.top ||
+                    e.clientY > rect.bottom
+                ) {
+                    closeAction();
+                }
+            });
         }
     </script>
 </section>

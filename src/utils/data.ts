@@ -3,8 +3,6 @@
 // import engagementGap from "../assets/images/engagement-gap.jpg";
 // import resultsInHibernation from "../assets/images/results-in-hibernation.jpg";
 
-
-
 const faqs = [
   {
     question: "Bagaimana cara melakukan pemesanan?",
@@ -64,98 +62,98 @@ const products = [
   {
     title: "Pintu Lipat Aluminium",
     description:
-      "Desain minimalis dan modern untuk sekat ruangan yang elegan dan fleksibel. Mengoptimalkan bukaan ruang.",
-    image: "fotohero.jpeg",
+      "Solusi hemat ruang yang bisa terbuka lebar sepenuhnya. Frame aluminium hitam dengan jaring bermotif memberikan tampilan industrial-modern yang kini sangat diminati.",
+    image: "pintu-lipat.jpg",
   },
   {
-    title: "Jendela Casement",
+    title: "Jendela Jungkit / Awning",
     description:
-      "Bukaan maksimal untuk sirkulasi udara terbaik dengan sistem penguncian ganda yang aman dan kedap suara.",
-    image: "tester.jpg",
+      "Buka ke atas saat hujan sekalipun tanpa risiko air masuk. Desain grid klasik dua panel memberikan nuansa arsitektur Eropa yang timeless pada fasad rumah Anda.",
+    image: "jendela-jungkit.JPEG",
   },
   {
-    title: "Partisi Kaca Frameless",
+    title: "Sliding Swing 1 Daun",
     description:
-      "Ciptakan kesan luas dan mewah pada ruangan dengan partisi kaca tanpa bingkai kelas premium.",
-    image: "",
+      "Pintu yang bisa digeser sekaligus dibuka ayun — dua fungsi dalam satu produk. Kaca motif grid putih menghadirkan keeleganan klasik yang cocok untuk interior rumah modern.",
+    image: "sliding-swing-2pintu.JPEG",
   },
   {
     title: "Kitchen Set Aluminium",
     description:
-      "Tahan rayap dan anti air, pilihan paling tepat untuk dapur modern yang awet dan sangat mudah dibersihkan.",
-    image: "",
+      "Lupakan rayap dan cat mengelupas. Kabinet aluminium hitam glossy ini tidak butuh perawatan khusus — cukup lap, selalu tampak baru seperti hari pertama dipasang.",
+    image: "kitchen-set.jpg",
   },
   {
-    title: "Kanopi Kaca Tempered",
+    title: "Lemari Bawah Tangga Custom",
     description:
-      "Perlindungan maksimal dengan pencahayaan alami yang tetap optimal untuk area carport atau teras.",
-    image: "",
+      "Area segitiga di bawah tangga yang biasanya dibiarkan kosong kini disulap menjadi lemari penyimpanan penuh. Dibuat custom sesuai dimensi ruangan Anda, tidak ada satu ruang pun terbuang.",
+    image: "pintu-bawah-tangga.jpeg",
   },
   {
-    title: "Pintu Sliding Kaca",
+    title: "Sliding Door 4 Daun Ornamen",
     description:
-      "Solusi hemat ruang dengan rel atas premium yang pergerakannya halus dan tanpa suara saat digeser.",
-    image: "",
+      "Empat panel pintu geser berjejer rapi dengan motif grid putih — saat dibuka sepenuhnya, teras dan ruang tamu menyatu menjadi satu area yang lapang dan penuh cahaya.",
+    image: "sliding-door-ornamen.JPEG",
   },
   {
-    title: "Jendela Jalusi Aluminium",
+    title: "Sliding Swing 4 Daun",
     description:
-      "Sirkulasi udara maksimal tanpa mengorbankan privasi. Sangat cocok untuk area kelembapan tinggi seperti kamar mandi.",
-    image: "",
+      "Sistem empat daun yang bisa digeser dan dibuka lebar penuh — dilengkapi bovenlight di atasnya agar cahaya masuk dari dua arah. Pilihan premium untuk ruang yang butuh fleksibilitas tinggi.",
+    image: "sliding-swing-4pintu.jpg",
   },
   {
-    title: "Kusen Aluminium Urat Kayu",
+    title: "Pintu & Jendela Kombinasi",
     description:
-      "Kombinasi sempurna antara estetika alami kayu dengan ketahanan dan kekuatan struktur aluminium.",
-    image: "",
+      "Satu frame, dua fungsi: jendela lebar kaca bening untuk pemandangan terbuka, pintu kaca buram di sisi untuk privasi. Finishing hitam matte memberi kesan arsitektur kontemporer yang kuat.",
+    image: "pintu-jendela.jpg",
   },
   {
-    title: "Pintu Kaca Double",
+    title: "Pintu & Jendela Sliding",
     description:
-      "Pintu kaca elegan bergaya perkantoran/komersial modern dengan handle stainless steel kualitas tinggi.",
-    image: "",
+      "Tiga panel besar yang bergeser senyap — setiap panel kaca motif grid hitam seolah menjadi lukisan bingkai hitam di dinding putih. Cocok untuk ruang yang ingin tampil artistik.",
+    image: "pintu-jendelasliding.jpg",
   },
   {
-    title: "Railing Tangga Aluminium",
+    title: "Pintu Kaca Sandblast Double",
     description:
-      "Pegangan tangga minimalis yang kuat, anti karat, dan dirancang khusus untuk keselamatan keluarga.",
-    image: "",
+      "Kaca sandblast dua daun yang menyaring pandangan namun tetap mengalirkan cahaya lembut ke dalam ruangan. Handle bar hitam memanjang di tengah menjadi aksen desain yang menarik.",
+    image: "pintu-kacaes.jpg",
   },
   {
-    title: "Railing Tanggga Aluminium",
+    title: "Pintu Sliding Kaca Buram",
     description:
-      "Railing balkon minimalis dengan desain modern dan finishing berkualitas tinggi.",
-    image: "",
+      "Tiga panel kaca buram putih yang bergeser di rel atas — ketika ditutup memberi privasi penuh, ketika dibuka ruangan menyatu dengan sempurna. Ideal sebagai sekat antara ruang tamu dan ruang makan.",
+    image: "pintu-partisikaca.jpg",
   },
   {
-    title: "Pintu Kaca Tempered",
+    title: "Pintu Utama Solid Aluminium",
     description:
-      "Pintu kaca tahan dampak dengan keselamatan maksimal untuk pintu masuk utama rumah modern.",
-    image: "",
+      "Kesan pertama yang kuat dimulai dari sini. Panel datar hitam solid tanpa ornamen berlebihan justru menampilkan karakter rumah yang percaya diri — kokoh, tegas, dan bebas perawatan.",
+    image: "pintu-utama.jpeg",
   },
   {
-    title: "Jendela Sliding Aluminium",
+    title: "Pintu Double Ornamen Kaca",
     description:
-      "Jendela slide berkualitas dengan sistem peluncur yang halus dan tahan lama untuk area hunian.",
-    image: "",
+      "Pintu double daun dengan motif grid kaca yang menciptakan permainan cahaya indah di dalam ruangan. Finishing hitam matte elegan tanpa terkesan berat — pilihan tepat untuk pintu belakang atau ruang santai.",
+    image: "pintu-double-ornamen.jpeg",
   },
   {
-    title: "Kusen Pintu Minimalis",
+    title: "Jendela Swing 3 Daun",
     description:
-      "Kusen pintu dengan desain line minimalis yang cocok untuk rumah gaya kontemporer.",
-    image: "",
+      "Tiga daun jendela yang terbuka penuh ke kiri dan kanan — di pagi hari hamparan cahaya dan angin segar langsung membanjiri ruangan. Motif grid menambah dimensi visual pada tampilan fasad.",
+    image: "jendela-swing-ornamen.jpeg",
   },
   {
-    title: "Kanopi Aluminium Hollow",
+    title: "Pintu Expanda / Kasa",
     description:
-      "Kanopi ringan namun kuat dengan desain modern untuk area outdoor yang stylish dan fungsional.",
-    image: "",
+      "Angin segar boleh masuk, nyamuk tidak. Jaring bermotif bunga pada frame putih ini bukan sekadar pelindung — tampilannya jauh lebih menarik dari pintu kasa konvensional biasa.",
+    image: "pintu-expanda.jpg",
   },
   {
-    title: "Partisi Kaca Geser",
+    title: "Sliding Door 2 Daun Coklat",
     description:
-      "Partisi kaca dengan sistem geser smooth untuk fleksibilitas ruangan yang maksimal.",
-    image: "",
+      "Frame coklat tembaga yang hangat bertemu kaca bening full tinggi — kombinasi yang tak terduga namun sangat serasi. Membuat ruang terasa lebih tinggi dan bernilai saat sorotan lampu menyentuh permukaannya.",
+    image: "sliding-2pintu.jpg",
   },
 ];
 
