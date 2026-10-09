@@ -24,18 +24,19 @@ const { className } = Astro.props;
 
         <!-- Horizontal scrollable grid blocks -->
         <div class="relative w-full mt-10">
-            <div id="product-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 hide-scroll-bar pb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div id="product-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 hide-scroll-bar pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
                 {products.map((product) => (
-                    <div class="product-item snap-center shrink-0 w-[85vw] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)]">
-                        <div class="group flex flex-col bg-white dark:bg-slate-800 rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-full">
+                    <div class="product-item snap-start shrink-0 w-[85vw] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] select-none">
+                        <div class="group flex flex-col bg-white dark:bg-slate-800 rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-full cursor-pointer">
                             
                             <!-- Product Image Header -->
-                            <div class="relative w-full aspect-[4/5] bg-slate-100 dark:bg-slate-700 overflow-hidden">
+                            <div class="relative w-full aspect-[4/5] bg-slate-100 dark:bg-slate-700 overflow-hidden select-none">
                                 {product.image ? (
                                     <img 
                                         src={`/products/${product.image}`} 
                                         alt={product.title} 
-                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                                        draggable="false"
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none select-none" 
                                     />
                                 ) : (
                                     <div class="w-full h-full flex flex-col items-center justify-center text-slate-400">
@@ -145,29 +146,101 @@ const { className } = Astro.props;
             from { opacity: 0; }
             to { opacity: 1; }
         }
+
+        #product-carousel img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+        }
     </style>
 
     <script>
-        const carousel = document.getElementById('product-carousel');
-        if (carousel) {
-            const items = carousel.querySelectorAll('.product-item');
-            const btnPrev = document.getElementById('carousel-prev');
-            const btnNext = document.getElementById('carousel-next');
+        function setupProductsCarousel() {
+            const carousel = document.getElementById('product-carousel');
+            if (carousel) {
+                const items = carousel.querySelectorAll('.product-item');
+                const btnPrev = document.getElementById('carousel-prev');
+                const btnNext = document.getElementById('carousel-next');
 
-            if (btnPrev && btnNext && items.length > 0) {
-                const getScrollAmount = () => {
-                    const itemWidth = (items[0] as HTMLElement).offsetWidth;
-                    return itemWidth + 24; 
+                if (btnPrev && btnNext && items.length > 0) {
+                    const getScrollAmount = () => {
+                        const itemWidth = (items[0] as HTMLElement).offsetWidth;
+                        return itemWidth + 24; 
+                    };
+
+                    btnPrev.addEventListener('click', () => {
+                        carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                    });
+
+                    btnNext.addEventListener('click', () => {
+                        carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                    });
+                }
+
+                // Drag to slide functionality for desktop - identical to Industries.astro
+                let isDown = false;
+                let startX = 0;
+                let scrollLeft = 0;
+                let isDragging = false;
+
+                carousel.style.cursor = 'grab';
+
+                carousel.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    isDragging = false;
+                    startX = e.pageX - carousel.offsetLeft;
+                    scrollLeft = carousel.scrollLeft;
+                    carousel.style.cursor = 'grabbing';
+                    carousel.style.scrollBehavior = 'auto';
+                    carousel.style.scrollSnapType = 'none';
+                    carousel.style.userSelect = 'none';
+                });
+
+                const stopProductDrag = () => {
+                    if (!isDown) return;
+                    isDown = false;
+                    carousel.style.cursor = 'grab';
+                    carousel.style.scrollBehavior = 'smooth';
+                    carousel.style.scrollSnapType = 'x mandatory';
+                    carousel.style.removeProperty('user-select');
+                    setTimeout(() => {
+                        isDragging = false;
+                    }, 60);
                 };
 
-                btnPrev.addEventListener('click', () => {
-                    carousel.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+                carousel.addEventListener('mouseleave', stopProductDrag);
+                window.addEventListener('mouseup', stopProductDrag);
+
+                carousel.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    const x = e.pageX - carousel.offsetLeft;
+                    const walk = (x - startX) * 1.5;
+                    if (Math.abs(walk) > 5) {
+                        isDragging = true;
+                    }
+                    carousel.scrollLeft = scrollLeft - walk;
                 });
 
-                btnNext.addEventListener('click', () => {
-                    carousel.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-                });
+                // Prevent accidental click actions (such as opening modal) when dragging
+                carousel.addEventListener(
+                    'click',
+                    (e) => {
+                        if (isDragging) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        }
+                    },
+                    true
+                );
             }
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', setupProductsCarousel);
+        } else {
+            setupProductsCarousel();
         }
 
         // Modal Logic

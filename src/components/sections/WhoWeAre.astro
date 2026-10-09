@@ -8,14 +8,7 @@ export interface Props {
 
 const { className } = Astro.props;
 
-const features = [
-  "Renovasi Rumah",
-  "Hunian Residensial",
-  "Pembangunan Rumah",
-  "Kebutuhan Kantor",
-  "Kebutuhan Ruko",
-  "Lokasi Komersial",
-];
+
 ---
 
 <section id="about" class={`relative reveal ${className}`}>
@@ -54,52 +47,53 @@ const features = [
         </div>
       </div>
 
-      <!-- Right Side -->
-      <div class="flex flex-col gap-10 md:gap-12 lg:pt-4">
-        <!-- Top: 2 Images Side by Side -->
-        <div class="flex gap-4 sm:gap-6">
-          <div
-            class="w-1/2 aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 relative group shadow-sm"
-          >
-            <img
-              src="/products/utama.jpeg"
-              alt="Utama"
-              class="w-full h-full object-cover transition-transform group-hover:scale-105"
-            />
+      <!-- Right Side: Minimalist Text & Icons -->
+      <div class="flex flex-col justify-center gap-8 lg:pl-10 lg:pt-4">
+        <!-- Item 1 -->
+        <div class="flex gap-5 items-start">
+          <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/5 flex items-center justify-center flex-shrink-0 mt-1">
+             <!-- Icon Quality -->
+             <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+             </svg>
           </div>
-          <div
-            class="w-1/2 aspect-[4/3] rounded-2xl overflow-hidden bg-slate-200 dark:bg-slate-800 relative group shadow-sm"
-          >
-            <img
-              src="/products/lagikerja.jpeg"
-              alt="Lagi Kerja"
-              class="w-full h-full object-cover transition-transform group-hover:scale-105"
-            />
+          <div>
+            <h3 class="text-xl font-semibold text-heading-1 mb-2">Standar Kualitas Tinggi</h3>
+            <Paragraph className="text-sm sm:text-base">
+              Material pilihan terbaik dengan jaminan daya tahan dan nilai estetika jangka panjang untuk setiap proyek.
+            </Paragraph>
           </div>
         </div>
 
-        <!-- Bottom: We Come With -->
-        <div>
-          <h3 class="text-2xl sm:text-[1.75rem] font-bold text-heading-1 mb-8">
-            Kami Melayani :
-          </h3>
-          <div class="grid grid-cols-2 gap-y-4 sm:gap-y-5 gap-x-3 sm:gap-x-4">
-            {
-              features.map((feature) => (
-                <div class="flex items-start sm:items-center gap-2.5 sm:gap-4">
-                  <svg
-                    class="w-5 h-5 sm:w-6 sm:h-6 text-secondary flex-shrink-0 mt-0.5 sm:mt-0"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M12 3L2 12h3v8h5v-6h4v6h5v-8h3L12 3z" />
-                  </svg>
-                  <span class="text-heading-3 text-sm sm:text-base font-medium leading-snug">
-                    {feature}
-                  </span>
-                </div>
-              ))
-            }
+        <!-- Item 2 -->
+        <div class="flex gap-5 items-start">
+          <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/5 flex items-center justify-center flex-shrink-0 mt-1">
+             <!-- Icon Precision -->
+             <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+             </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-heading-1 mb-2">Presisi & Akurasi</h3>
+            <Paragraph className="text-sm sm:text-base">
+              Pengerjaan yang mengutamakan detail, memastikan setiap potongan dan sambungan terpasang sempurna tanpa celah.
+            </Paragraph>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="flex gap-5 items-start">
+          <div class="w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/5 flex items-center justify-center flex-shrink-0 mt-1">
+             <!-- Icon Time -->
+             <svg class="w-6 h-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+             </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-heading-1 mb-2">Penyelesaian Tepat Waktu</h3>
+            <Paragraph className="text-sm sm:text-base">
+              Manajemen waktu dan tenaga kerja yang efisien untuk menyelesaikan setiap proyek sesuai dengan jadwal yang disepakati.
+            </Paragraph>
           </div>
         </div>
       </div>
