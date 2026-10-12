@@ -63,97 +63,97 @@ const products = [
     title: "Pintu Lipat Aluminium",
     description:
       "Solusi hemat ruang yang bisa terbuka lebar sepenuhnya. Frame aluminium hitam dengan jaring bermotif memberikan tampilan industrial-modern yang kini sangat diminati.",
-    image: "pintu-lipat.jpg",
+    image: "pintu-lipat.webp",
   },
   {
     title: "Jendela Jungkit / Awning",
     description:
       "Buka ke atas saat hujan sekalipun tanpa risiko air masuk. Desain grid klasik dua panel memberikan nuansa arsitektur Eropa yang timeless pada fasad rumah Anda.",
-    image: "jendela-jungkit.JPEG",
+    image: "jendela-jungkit.webp",
   },
   {
     title: "Sliding Swing 1 Daun",
     description:
       "Pintu yang bisa digeser sekaligus dibuka ayun — dua fungsi dalam satu produk. Kaca motif grid putih menghadirkan keeleganan klasik yang cocok untuk interior rumah modern.",
-    image: "sliding-swing-2pintu.JPEG",
+    image: "sliding-swing-2pintu.webp",
   },
   {
     title: "Kitchen Set Aluminium",
     description:
       "Lupakan rayap dan cat mengelupas. Kabinet aluminium hitam glossy ini tidak butuh perawatan khusus — cukup lap, selalu tampak baru seperti hari pertama dipasang.",
-    image: "kitchen-set.jpg",
+    image: "kitchen-set.webp",
   },
   {
     title: "Lemari Bawah Tangga Custom",
     description:
       "Area segitiga di bawah tangga yang biasanya dibiarkan kosong kini disulap menjadi lemari penyimpanan penuh. Dibuat custom sesuai dimensi ruangan Anda, tidak ada satu ruang pun terbuang.",
-    image: "pintu-bawah-tangga.jpeg",
+    image: "pintu-bawah-tangga.webp",
   },
   {
     title: "Sliding Door 4 Daun Ornamen",
     description:
       "Empat panel pintu geser berjejer rapi dengan motif grid putih — saat dibuka sepenuhnya, teras dan ruang tamu menyatu menjadi satu area yang lapang dan penuh cahaya.",
-    image: "sliding-door-ornamen.JPEG",
+    image: "sliding-door-ornamen.webp",
   },
   {
     title: "Sliding Swing 4 Daun",
     description:
       "Sistem empat daun yang bisa digeser dan dibuka lebar penuh — dilengkapi bovenlight di atasnya agar cahaya masuk dari dua arah. Pilihan premium untuk ruang yang butuh fleksibilitas tinggi.",
-    image: "sliding-swing-4pintu.jpg",
+    image: "sliding-swing-4pintu.webp",
   },
   {
     title: "Pintu & Jendela Kombinasi",
     description:
       "Satu frame, dua fungsi: jendela lebar kaca bening untuk pemandangan terbuka, pintu kaca buram di sisi untuk privasi. Finishing hitam matte memberi kesan arsitektur kontemporer yang kuat.",
-    image: "pintu-jendela.jpg",
+    image: "pintu-jendela.webp",
   },
   {
     title: "Pintu & Jendela Sliding",
     description:
       "Tiga panel besar yang bergeser senyap — setiap panel kaca motif grid hitam seolah menjadi lukisan bingkai hitam di dinding putih. Cocok untuk ruang yang ingin tampil artistik.",
-    image: "pintu-jendelasliding.jpg",
+    image: "pintu-jendelasliding.webp",
   },
   {
     title: "Pintu Kaca Sandblast Double",
     description:
       "Kaca sandblast dua daun yang menyaring pandangan namun tetap mengalirkan cahaya lembut ke dalam ruangan. Handle bar hitam memanjang di tengah menjadi aksen desain yang menarik.",
-    image: "pintu-kacaes.jpg",
+    image: "pintu-kacaes.webp",
   },
   {
     title: "Pintu Sliding Kaca Buram",
     description:
       "Tiga panel kaca buram putih yang bergeser di rel atas — ketika ditutup memberi privasi penuh, ketika dibuka ruangan menyatu dengan sempurna. Ideal sebagai sekat antara ruang tamu dan ruang makan.",
-    image: "pintu-partisikaca.jpg",
+    image: "pintu-partisikaca.webp",
   },
   {
     title: "Pintu Utama Solid Aluminium",
     description:
       "Kesan pertama yang kuat dimulai dari sini. Panel datar hitam solid tanpa ornamen berlebihan justru menampilkan karakter rumah yang percaya diri — kokoh, tegas, dan bebas perawatan.",
-    image: "pintu-utama.jpeg",
+    image: "pintu-utama.webp",
   },
   {
     title: "Pintu Double Ornamen Kaca",
     description:
       "Pintu double daun dengan motif grid kaca yang menciptakan permainan cahaya indah di dalam ruangan. Finishing hitam matte elegan tanpa terkesan berat — pilihan tepat untuk pintu belakang atau ruang santai.",
-    image: "pintu-double-ornamen.jpeg",
+    image: "pintu-double-ornamen.webp",
   },
   {
     title: "Jendela Swing 3 Daun",
     description:
       "Tiga daun jendela yang terbuka penuh ke kiri dan kanan — di pagi hari hamparan cahaya dan angin segar langsung membanjiri ruangan. Motif grid menambah dimensi visual pada tampilan fasad.",
-    image: "jendela-swing-ornamen.jpeg",
+    image: "jendela-swing-ornamen.webp",
   },
   {
     title: "Pintu Expanda / Kasa",
     description:
       "Angin segar boleh masuk, nyamuk tidak. Jaring bermotif bunga pada frame putih ini bukan sekadar pelindung — tampilannya jauh lebih menarik dari pintu kasa konvensional biasa.",
-    image: "pintu-expanda.jpg",
+    image: "pintu-expanda.webp",
   },
   {
     title: "Sliding Door 2 Daun Coklat",
     description:
       "Frame coklat tembaga yang hangat bertemu kaca bening full tinggi — kombinasi yang tak terduga namun sangat serasi. Membuat ruang terasa lebih tinggi dan bernilai saat sorotan lampu menyentuh permukaannya.",
-    image: "sliding-2pintu.jpg",
+    image: "sliding-2pintu.webp",
   },
 ];
 
