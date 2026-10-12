@@ -44,6 +44,11 @@ const { className } = Astro.props;
       <Image
         src={fotoHero}
         alt="Agung Jaya Aluminium"
+        loading="eager"
+        fetchpriority="high"
+        decoding="sync"
+        width={960}
+        height={1280}
         class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover aspect-square lg:aspect-auto w-full shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50"
       />
     </div>
