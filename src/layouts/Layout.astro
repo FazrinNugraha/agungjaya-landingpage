@@ -2,30 +2,58 @@
 import Navbar from "./Navbar.astro";
 import Footer from "./Footer.astro";
 import logoAgungJaya from "../assets/images/logoAGUNGJAYA.jpeg";
+import fotoHero from "../assets/images/fotohero.jpeg";
+import { getImage } from "astro:assets";
+import "../styles/custom.css";
 
 export interface Props {
   title: string;
 }
 
 const { title } = Astro.props;
+const optimizedHero = await getImage({
+  src: fotoHero,
+  format: "webp",
+  width: 960,
+  height: 1280,
+});
 ---
 
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/jpeg" href={logoAgungJaya.src} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
       content="Agung Jaya — Penyedia produk aluminium premium untuk pintu, partisi kaca, dan kitchen set rumah berkualitas tinggi."
     />
     <title>AgungJaya Aluminium</title>
+    
+    <!-- Preload LCP Hero Image -->
+    <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
+
+    <!-- Google Fonts Optimization: Preconnect & Asynchronous Loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
-    <link rel="stylesheet" href="/style/custom.css" />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar />
