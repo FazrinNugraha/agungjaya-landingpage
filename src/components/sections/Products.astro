@@ -24,7 +24,7 @@ const { className } = Astro.props;
 
         <!-- Horizontal scrollable grid blocks -->
         <div class="relative w-full mt-10">
-            <div id="product-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 hide-scroll-bar pb-8 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth">
+            <div id="product-carousel" class="flex overflow-x-auto snap-x snap-mandatory gap-6 hide-scroll-bar pb-8 -mx-4 px-4 sm:mx-0 sm:px-0">
                 {products.map((product) => (
                     <div class="product-item snap-start shrink-0 w-[85vw] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] select-none">
                         <div class="group flex flex-col bg-white dark:bg-slate-800 rounded-[2rem] overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-100 dark:border-slate-800 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 h-full cursor-pointer">
