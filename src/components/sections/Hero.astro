@@ -1,13 +1,17 @@
 ---
-import { Image } from "astro:assets";
 import Container from "../shared/Container.astro";
-import fotoHero from "../../assets/images/fotohero.jpeg";
+import {
+  getHeroDesktopImage,
+  getHeroMobileImage,
+} from "../../utils/heroImages";
 
 export interface Props {
   className?: string;
 }
 
 const { className } = Astro.props;
+const heroDesktop = await getHeroDesktopImage();
+const heroMobile = await getHeroMobileImage();
 ---
 
 <section class={`relative pt-18 lg:pt-36 ${className}`}>
@@ -25,6 +29,7 @@ const { className } = Astro.props;
       </h1>
       <p class="text-heading-3 text-lg md:text-xl leading-relaxed max-w-xl mt-8">
        Hadirkan kenyamanan keluarga melalui produk aluminium yang memadukan desain elegan dan material tahan lama, dengan jaminan pemasangan pintu, jendela, hingga kitchen set yang rapi dan presisi agar rumah Anda tetap kokoh tanpa perlu renovasi berulang kali.
+      </p>
 
       <div class="mt-10 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start w-full">
         <a href="#products" class="inline-flex items-center justify-center w-full sm:w-max px-8 py-3.5 rounded-full bg-primary text-white text-base font-semibold hover:bg-opacity-90 hover:shadow-secondary/20 transition-all shadow-lg shadow-primary/20">
@@ -41,16 +46,26 @@ const { className } = Astro.props;
     <div
       class="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl"
     >
-      <Image
-        src={fotoHero}
-        alt="Agung Jaya Aluminium"
-        loading="eager"
-        fetchpriority="high"
-        decoding="sync"
-        width={960}
-        height={1280}
-        class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover aspect-square lg:aspect-auto w-full shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50"
-      />
+      <picture>
+        <source
+          media="(max-width: 1023px)"
+          srcset={heroMobile.srcSet.attribute}
+          sizes="(max-width: 600px) 88vw, 92vw"
+          type="image/webp"
+        >
+        <img
+          src={heroDesktop.src}
+          srcset={heroDesktop.srcSet.attribute}
+          sizes="(min-width: 1024px) 50vw, (max-width: 600px) 88vw, 92vw"
+          alt="Agung Jaya Aluminium"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          width="960"
+          height="1280"
+          class="lg:absolute lg:w-full lg:h-full rounded-3xl object-cover aspect-square lg:aspect-auto w-full shadow-xl shadow-slate-200/50 dark:shadow-slate-900/50"
+        >
+      </picture>
     </div>
   </Container>
 </section>
