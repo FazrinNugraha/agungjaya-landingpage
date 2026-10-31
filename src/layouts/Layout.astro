@@ -1,9 +1,10 @@
 ---
 import Navbar from "./Navbar.astro";
 import Footer from "./Footer.astro";
-import logoAgungJaya from "../assets/images/logoAGUNGJAYA.jpeg";
-import fotoHero from "../assets/images/fotohero.jpeg";
-import { getImage } from "astro:assets";
+import {
+  getHeroDesktopImage,
+  getHeroMobileImage,
+} from "../utils/heroImages";
 import "../styles/custom.css";
 
 export interface Props {
@@ -11,18 +12,20 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-const optimizedHero = await getImage({
-  src: fotoHero,
-  format: "webp",
-  width: 960,
-  height: 1280,
-});
+const heroDesktop = await getHeroDesktopImage();
+const heroMobile = await getHeroMobileImage();
+const heroDesktopPreload =
+  heroDesktop.srcSet.values.find((value) => value.descriptor === "960w")?.url ??
+  heroDesktop.src;
+const heroMobilePreload =
+  heroMobile.srcSet.values.find((value) => value.descriptor === "960w")?.url ??
+  heroMobile.src;
 ---
 
 <html lang="id">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/jpeg" href={logoAgungJaya.src} />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta
@@ -31,29 +34,36 @@ const optimizedHero = await getImage({
     />
     <title>AgungJaya Aluminium</title>
     
-    <!-- Preload LCP Hero Image -->
-    <link rel="preload" as="image" href={optimizedHero.src} fetchpriority="high" />
-
-    <!-- Google Fonts Optimization: Preconnect & Asynchronous Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload the self-hosted font -->
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+      href="/fonts/raleway-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Preload the LCP hero image for the active viewport -->
+    <link
+      rel="preload"
+      as="image"
+      href={heroMobilePreload}
+      imagesrcset={heroMobile.srcSet.attribute}
+      imagesizes="(max-width: 600px) 88vw, 92vw"
+      media="(max-width: 1023px)"
+      type="image/webp"
+      fetchpriority="high"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
+      rel="preload"
+      as="image"
+      href={heroDesktopPreload}
+      imagesrcset={heroDesktop.srcSet.attribute}
+      imagesizes="(min-width: 1024px) 50vw"
+      media="(min-width: 1024px)"
+      type="image/webp"
+      fetchpriority="high"
     />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
   </head>
   <body class="overflow-hidden overflow-y-auto bg-body">
     <Navbar />
