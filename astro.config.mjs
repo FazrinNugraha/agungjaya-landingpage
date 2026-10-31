@@ -7,4 +7,7 @@ export default defineConfig({
   integrations: [tailwind()],
   site: "https://www.agungjayaaluminium.my.id",
   base: "",
+  build: {
+    inlineStylesheets: "always",
+  },
 });
