@@ -64,32 +64,43 @@ const sectors: SectorItem[] = [
   <Container>
     <!-- Header: Tag & Main headline -->
     <div class="mb-10 md:mb-14">
-      <span class="text-primary font-bold text-sm md:text-base tracking-wide flex items-center gap-2 mb-2">
+      <span class="text-primary-text font-bold text-sm md:text-base tracking-wide flex items-center gap-2 mb-2">
         Sektor yang Kami Layani
       </span>
       <h2 class="text-heading-1 text-3xl sm:text-4xl md:text-[2.75rem] font-bold leading-[1.2]">
         Solusi Kustom Aluminium & Kaca <br class="hidden sm:inline" />
-        <span class="text-primary">untuk Berbagai Sektor</span>
+        <span class="text-primary-text">untuk Berbagai Sektor</span>
       </h2>
     </div>
 
     <!-- Cards Carousel Area -->
-    <div class="relative w-full">
+    <div
+      class="relative w-full"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Sektor yang kami layani"
+    >
       <div
         id="industry-carousel"
-        class="flex overflow-x-auto snap-x snap-mandatory gap-5 sm:gap-6 hide-scroll-bar pb-6 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+        class="carousel-track flex overflow-x-auto snap-x snap-mandatory gap-5 sm:gap-6 hide-scroll-bar pb-6 pt-2 -mx-4 px-4 sm:mx-0 sm:px-0"
+        tabindex="0"
+        role="group"
+        aria-label="Slide sektor"
       >
         {sectors.map((item, index) => (
           <div
             data-sector-card
-            class={`industry-card group snap-start shrink-0 w-[84vw] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] rounded-[2rem] p-7 sm:p-8 flex flex-col justify-between bg-box-bg border border-box-border/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40 hover:-translate-y-1.5 transition-all duration-300 cursor-pointer ${
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${index + 1} dari ${sectors.length}`}
+            class={`industry-card group snap-start shrink-0 w-[84vw] sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] rounded-[2rem] p-7 sm:p-8 flex flex-col justify-between bg-box-bg border border-box-border/80 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-xl hover:shadow-primary/5 hover:border-primary/40 hover:-translate-y-1.5 transition-all duration-300 ${
               index === 0 ? "is-active" : ""
             }`}
           >
           
             <div>
               <!-- Single Clean, Prominent Icon Container -->
-              <div class="w-16 h-16 rounded-2xl bg-blue-50/90 dark:bg-slate-800 text-primary flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-primary/20">
+              <div class="w-16 h-16 rounded-2xl bg-blue-50/90 dark:bg-slate-800 text-primary-text flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-primary/20" aria-hidden="true">
                 {item.icon === "home" && (
                   <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
@@ -124,7 +135,7 @@ const sectors: SectorItem[] = [
               </div>
 
               <!-- Title -->
-              <h3 class="text-xl sm:text-2xl font-bold text-heading-1 mt-7 mb-3 group-hover:text-primary transition-colors duration-200">
+              <h3 class="text-xl sm:text-2xl font-bold text-heading-1 mt-7 mb-3 group-hover:text-primary-text transition-colors duration-200">
                 {item.title}
               </h3>
 
@@ -137,16 +148,31 @@ const sectors: SectorItem[] = [
             <!-- Bottom Flow: Action Link to Contact (#cta) -->
             <a
               href="#cta"
-              class="pt-6 mt-6 border-t border-box-border/60 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-400 group-hover:text-primary transition-colors duration-200"
+              class="pt-6 mt-6 border-t border-box-border/60 flex items-center justify-between text-xs sm:text-sm font-semibold text-slate-500 dark:text-slate-400 group-hover:text-primary-text transition-colors duration-200"
             >
               <span>Hubungi Kami</span>
-              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
           </div>
         ))}
       </div>
+
+    <!-- Navigation Elements -->
+    <div class="flex items-center justify-center gap-6 mt-2">
+      <button id="industry-prev" type="button" class="flex w-12 h-12 rounded-full border border-slate-200 dark:border-slate-800 items-center justify-center text-slate-500 hover:text-primary-text hover:border-primary transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:-translate-x-1" aria-label="Slide sebelumnya">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button id="industry-next" type="button" class="flex w-12 h-12 rounded-full border border-slate-200 dark:border-slate-800 items-center justify-center text-slate-500 hover:text-primary-text hover:border-primary transition-all hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:translate-x-1" aria-label="Slide berikutnya">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+    <p class="sr-only" role="status" aria-live="polite" data-industry-status>Slide 1 dari {sectors.length}</p>
     </div>
   </Container>
 </section>
@@ -179,82 +205,142 @@ const sectors: SectorItem[] = [
 </style>
 
 <script>
-  function setupIndustriesCards() {
-    const carousel = document.getElementById("industry-carousel");
-    const cards = document.querySelectorAll("[data-sector-card]");
+  function setupIndustriesCarousel() {
+    const carousel = document.getElementById("industry-carousel") as HTMLElement | null;
+    const items = Array.from(carousel?.querySelectorAll<HTMLElement>("[data-sector-card]") ?? []);
+    const btnPrev = document.getElementById("industry-prev") as HTMLButtonElement | null;
+    const btnNext = document.getElementById("industry-next") as HTMLButtonElement | null;
+    const status = document.querySelector("[data-industry-status]") as HTMLElement | null;
 
+    if (!carousel || items.length === 0) return;
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const behavior = (): ScrollBehavior => (reduceMotion.matches ? "auto" : "smooth");
+
+    const getGap = () => {
+      const gap = Number.parseFloat(getComputedStyle(carousel).columnGap || "0");
+      return Number.isFinite(gap) ? gap : 0;
+    };
+
+    const getStep = () => {
+      const width = items[0]?.getBoundingClientRect().width ?? carousel.clientWidth;
+      return width + getGap();
+    };
+
+    const getMaxScroll = () => Math.max(0, carousel.scrollWidth - carousel.clientWidth);
+    const atStart = () => carousel.scrollLeft <= 4;
+    const atEnd = () => carousel.scrollLeft >= getMaxScroll() - 4;
+
+    const getIndex = () => {
+      const step = getStep();
+      if (!step) return 0;
+      return Math.max(0, Math.min(items.length - 1, Math.round(carousel.scrollLeft / step)));
+    };
+
+    const scrollToIndex = (index: number) => {
+      carousel.scrollTo({ left: index * getStep(), behavior: behavior() });
+    };
+
+    const announce = () => {
+      if (!status) return;
+      const step = getStep();
+      const first = getIndex();
+      const visible = step ? Math.max(1, Math.round(carousel.clientWidth / step)) : 1;
+      const last = Math.min(items.length, first + visible);
+      status.textContent =
+        last > first + 1
+          ? `Menampilkan slide ${first + 1} sampai ${last} dari ${items.length}`
+          : `Slide ${first + 1} dari ${items.length}`;
+    };
+
+    let settleTimer = 0;
+    if ("onscrollend" in window) {
+      carousel.addEventListener("scrollend", announce);
+    } else {
+      carousel.addEventListener("scroll", () => {
+        window.clearTimeout(settleTimer);
+        settleTimer = window.setTimeout(announce, 150);
+      });
+    }
+
+    btnPrev?.addEventListener("click", () => {
+      if (atStart()) {
+        carousel.scrollTo({ left: getMaxScroll(), behavior: behavior() });
+        return;
+      }
+      scrollToIndex(Math.max(0, getIndex() - 1));
+    });
+
+    btnNext?.addEventListener("click", () => {
+      if (atEnd()) {
+        carousel.scrollTo({ left: 0, behavior: behavior() });
+        return;
+      }
+      scrollToIndex(Math.min(items.length - 1, getIndex() + 1));
+    });
+
+    // Smooth drag-to-scroll support for desktop
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
     let isDragging = false;
 
-    // Toggle active state on card click (only when not dragging)
-    cards.forEach((card) => {
-      card.addEventListener("click", () => {
-        if (!isDragging) {
-          cards.forEach((c) => c.classList.remove("is-active"));
-          card.classList.add("is-active");
-        }
-      });
+    carousel.style.cursor = "grab";
+
+    carousel.addEventListener("mousedown", (e) => {
+      isDown = true;
+      isDragging = false;
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+      carousel.style.cursor = "grabbing";
+      carousel.style.scrollBehavior = "auto";
+      carousel.style.scrollSnapType = "none";
+      carousel.style.userSelect = "none";
     });
 
-    // Smooth drag-to-scroll support for desktop
-    if (carousel) {
+    const stopIndustryDrag = () => {
+      if (!isDown) return;
+      isDown = false;
       carousel.style.cursor = "grab";
-
-      carousel.addEventListener("mousedown", (e) => {
-        isDown = true;
+      carousel.style.scrollBehavior = "";
+      carousel.style.scrollSnapType = "x mandatory";
+      carousel.style.removeProperty("user-select");
+      window.setTimeout(() => {
         isDragging = false;
-        startX = e.pageX - carousel.offsetLeft;
-        scrollLeft = carousel.scrollLeft;
-        carousel.style.cursor = "grabbing";
-        carousel.style.scrollBehavior = "auto";
-        carousel.style.scrollSnapType = "none";
-        carousel.style.userSelect = "none";
-      });
+      }, 60);
+    };
 
-      const stopIndustryDrag = () => {
-        if (!isDown) return;
-        isDown = false;
-        carousel.style.cursor = "grab";
-        carousel.style.scrollBehavior = "smooth";
-        carousel.style.scrollSnapType = "x mandatory";
-        carousel.style.removeProperty("user-select");
-        setTimeout(() => {
-          isDragging = false;
-        }, 60);
-      };
+    carousel.addEventListener("mouseleave", stopIndustryDrag);
+    window.addEventListener("mouseup", stopIndustryDrag);
 
-      carousel.addEventListener("mouseleave", stopIndustryDrag);
-      window.addEventListener("mouseup", stopIndustryDrag);
+    carousel.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 1.5;
+      if (Math.abs(walk) > 5) {
+        isDragging = true;
+      }
+      carousel.scrollLeft = scrollLeft - walk;
+    });
 
-      carousel.addEventListener("mousemove", (e) => {
-        if (!isDown) return;
-        const x = e.pageX - carousel.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        if (Math.abs(walk) > 5) {
-          isDragging = true;
+    // Prevent accidental link triggers during drag
+    carousel.addEventListener(
+      "click",
+      (e) => {
+        if (isDragging) {
+          e.preventDefault();
+          e.stopPropagation();
         }
-        carousel.scrollLeft = scrollLeft - walk;
-      });
+      },
+      true
+    );
 
-      // Prevent accidental link or button triggers during drag
-      carousel.addEventListener(
-        "click",
-        (e) => {
-          if (isDragging) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-        },
-        true
-      );
-    }
+    announce();
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupIndustriesCards);
+    document.addEventListener("DOMContentLoaded", setupIndustriesCarousel);
   } else {
-    setupIndustriesCards();
+    setupIndustriesCarousel();
   }
 </script>

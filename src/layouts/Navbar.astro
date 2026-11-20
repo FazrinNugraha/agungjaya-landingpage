@@ -7,7 +7,7 @@ import logoAgungJaya from "../assets/images/logoAGUNGJAYA.jpeg";
 
 const navItems = [
   {
-    href: "#",
+    href: "#top",
     text: "Beranda",
   },
   {
@@ -47,10 +47,11 @@ const navItems = [
       <div
         data-nav-overlay
         aria-hidden="true"
-        class="fixed hidden inset-0 lg:!hidden bg-box-bg bg-opacity-50 backdrop-filter backdrop-blur-xl"
+        class="fixed hidden inset-0 lg:!hidden bg-white/50 dark:bg-slate-900/50 backdrop-blur-xl"
       >
       </div>
       <div
+        id="primary-navigation"
         data-navbar
         class="flex h-0 overflow-hidden lg:!h-auto lg:scale-y-100 duration-300 ease-linear flex-col gap-y-6 gap-x-4 lg:flex-row w-full lg:justify-between lg:items-center absolute lg:relative top-full lg:top-0 bg-body lg:bg-transparent border-x border-x-box-border lg:border-x-0"
       >
@@ -78,7 +79,10 @@ const navItems = [
 
       <div class="min-w-max flex items-center gap-x-2 sm:gap-x-3">
         <button
+          type="button"
           data-switch-theme
+          aria-label="Aktifkan tema gelap"
+          aria-pressed="false"
           class="outline-none flex relative text-heading-2 rounded-xl p-2 sm:p-2.5 border border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
         >
           <svg
@@ -110,12 +114,15 @@ const navItems = [
             ></path>
           </svg>
 
-          <span class="sr-only">switch theme</span>
         </button>
 
         <button
+          type="button"
           data-toggle-nav
           data-open-nav="false"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          aria-label="Buka menu navigasi"
           class="lg:hidden lg:invisible outline-none w-7 h-auto flex flex-col relative"
         >
           <span
@@ -130,7 +137,6 @@ const navItems = [
             id="line3"
             class="w-6 mt-1 h-0.5 rounded-ful bg-heading-2 transition-all duration-300 ease-linear"
           ></span>
-          <span class="sr-only">togglenav</span>
         </button>
       </div>
     </nav>

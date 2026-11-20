@@ -1,6 +1,8 @@
 ---
 import Navbar from "./Navbar.astro";
 import Footer from "./Footer.astro";
+import { getImage } from "astro:assets";
+import fotoHeroOg from "../assets/images/fotohero-square.jpeg";
 import {
   getHeroDesktopImage,
   getHeroMobileImage,
@@ -20,20 +22,114 @@ const heroDesktopPreload =
 const heroMobilePreload =
   heroMobile.srcSet.values.find((value) => value.descriptor === "960w")?.url ??
   heroMobile.src;
+
+const site = Astro.site ?? new URL("https://www.agungjayaaluminium.my.id");
+const canonicalURL = new URL(Astro.url.pathname, site);
+const ogImageAsset = await getImage({
+  src: fotoHeroOg,
+  width: 1200,
+  height: 630,
+  fit: "cover",
+  format: "jpeg",
+  quality: 75,
+});
+const ogImage = new URL(ogImageAsset.src, site).href;
+const pageTitle = `${title} | Agung Jaya Aluminium`;
+const description =
+  "Agung Jaya Aluminium — jasa pembuatan dan pemasangan pintu, jendela, partisi kaca, dan kitchen set aluminium di Jakarta Timur. Melayani Jabodetabek dengan hasil presisi dan material tahan lama.";
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Agung Jaya Aluminium",
+  description,
+  url: site.href,
+  image: ogImage,
+  telephone: "+62-822-6101-8391",
+  areaServed: "Jabodetabek",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Jakarta Timur",
+    addressCountry: "ID",
+  },
+  sameAs: [
+    "https://www.instagram.com/agungjaya_aluminiumm",
+    "https://www.tiktok.com/@agungjaya_aluminium",
+  ],
+};
 ---
 
 <html lang="id">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
-    <meta
-      name="description"
-      content="Agung Jaya — Penyedia produk aluminium premium untuk pintu, partisi kaca, dan kitchen set rumah berkualitas tinggi."
-    />
-    <title>{title}</title>
-    
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var meta = document.querySelector('meta[name="color-scheme"]');
+        var themeColor = document.querySelector('meta[name="theme-color"]');
+        var stored = null;
+        try {
+          stored = localStorage.getItem("theme");
+        } catch (error) {}
+        var isStored = stored === "light" || stored === "dark";
+        var isDark = isStored
+          ? stored === "dark"
+          : window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (meta) meta.setAttribute("content", isStored ? stored : "light dark");
+        if (themeColor) themeColor.setAttribute("content", isDark ? "#030712" : "#ffffff");
+        root.classList.toggle("dark", isDark);
+        if ("IntersectionObserver" in window) root.classList.add("js");
+      })();
+    </script>
+    <noscript>
+      <style is:inline>
+        @media (max-width: 1023px) {
+          header {
+            position: static !important;
+          }
+          body {
+            padding-top: 0 !important;
+          }
+          [data-navbar] {
+            position: static !important;
+            height: auto !important;
+            overflow: visible !important;
+          }
+          [data-toggle-nav],
+          [data-switch-theme] {
+            display: none !important;
+          }
+        }
+      </style>
+    </noscript>
+
+    <title>{pageTitle}</title>
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Agung Jaya Aluminium" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Produk aluminium Agung Jaya" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <!-- Preload the self-hosted font -->
     <link
       rel="preload"
@@ -64,116 +160,204 @@ const heroMobilePreload =
       type="image/webp"
       fetchpriority="high"
     />
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(businessSchema)}
+    ></script>
   </head>
-  <body class="overflow-hidden overflow-y-auto bg-body">
+  <body id="top" class="overflow-x-clip bg-body">
     <Navbar />
     <slot />
     <Footer />
   </body>
   <script>
-    detectSystemTheme();
-
-    const switchTheme = document.querySelector(
+    const themeToggle = document.querySelector(
       "[data-switch-theme]"
-    ) as HTMLButtonElement;
-    switchTheme.addEventListener("click", (e) => {
-      e.preventDefault();
-      changeThemeManually();
+    ) as HTMLButtonElement | null;
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+    const readStoredTheme = (): "light" | "dark" | null => {
+      try {
+        const value = localStorage.getItem("theme");
+        return value === "light" || value === "dark" ? value : null;
+      } catch {
+        return null;
+      }
+    };
+
+    const storeTheme = (value: "light" | "dark" | null) => {
+      try {
+        if (value) localStorage.setItem("theme", value);
+        else localStorage.removeItem("theme");
+      } catch {
+        /* Storage can be unavailable; the theme still applies for this page. */
+      }
+    };
+
+    const applyTheme = (theme: "light" | "dark" | null) => {
+      const isDark = theme ? theme === "dark" : systemTheme.matches;
+      if (colorSchemeMeta) {
+        colorSchemeMeta.setAttribute("content", theme ?? "light dark");
+      }
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute("content", isDark ? "#030712" : "#ffffff");
+      }
+      document.documentElement.classList.toggle("dark", isDark);
+      if (themeToggle) {
+        themeToggle.setAttribute("aria-pressed", String(isDark));
+        themeToggle.setAttribute(
+          "aria-label",
+          isDark ? "Aktifkan tema terang" : "Aktifkan tema gelap"
+        );
+      }
+    };
+
+    applyTheme(readStoredTheme());
+
+    themeToggle?.addEventListener("click", () => {
+      const rendered = document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
+      const target = rendered === "dark" ? "light" : "dark";
+      const system = systemTheme.matches ? "dark" : "light";
+
+      if (target === system) {
+        storeTheme(null);
+        applyTheme(null);
+      } else {
+        storeTheme(target);
+        applyTheme(target);
+      }
     });
 
-    function changeThemeManually() {
-      const localAppTheme = localStorage.getItem("theme");
-      // Whenever the user explicitly chooses dark mode, previously it was light mode
-      if (localAppTheme === "light") {
-        changeThemeToDark();
-      }
-      // Whenever the user explicitly chooses light mode, previously it was dark mode
-      if (localAppTheme === "dark") {
-        changeThemeToLight();
-      }
-      if (!localAppTheme) {
-        console.log("previously it was not set");
-        // Whenever the user explicitly chooses to respect the OS preference
-        detectSystemTheme(true);
-      }
-    }
+    systemTheme.addEventListener("change", () => {
+      if (!readStoredTheme()) applyTheme(null);
+    });
 
-    function detectSystemTheme(manual = false) {
-      if (localStorage.getItem("theme") === "dark") {
-        document.documentElement.classList.add("dark");
-        if (manual) localStorage.setItem("theme", "dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-        if (manual) localStorage.setItem("theme", "light");
-      }
-    }
-
-    function changeThemeToDark() {
-      localStorage.setItem("theme", "dark");
-      document.documentElement.classList.add("dark");
-    }
-
-    function changeThemeToLight() {
-      localStorage.setItem("theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
+    window.addEventListener("storage", (event) => {
+      if (event.key === "theme") applyTheme(readStoredTheme());
+    });
   </script>
   <script>
     const toggleMenu = document.querySelector(
       "[data-toggle-nav]"
-    ) as HTMLButtonElement;
-    const navbar = document.querySelector("[data-navbar]") as HTMLDivElement;
+    ) as HTMLButtonElement | null;
+    const navbar = document.querySelector("[data-navbar]") as HTMLElement | null;
     const overlayNav = document.querySelector(
       "[data-nav-overlay]"
-    ) as HTMLDivElement;
-    
-    const closeMenu = () => {
-      if (toggleMenu) {
+    ) as HTMLElement | null;
+    const desktopNav = window.matchMedia("(min-width: 1024px)");
+
+    const setNavInert = (inert: boolean) => {
+      if (!navbar) return;
+      if (inert) navbar.setAttribute("inert", "");
+      else navbar.removeAttribute("inert");
+    };
+
+    const closeMenu = (restoreFocus = false) => {
+      if (!toggleMenu || !navbar || !overlayNav) return;
+      toggleMenu.setAttribute("data-open-nav", "false");
+      toggleMenu.setAttribute("aria-expanded", "false");
+      toggleMenu.setAttribute("aria-label", "Buka menu navigasi");
+      overlayNav.setAttribute("data-is-visible", "false");
+      document.body.classList.remove("!overflow-y-hidden");
+      navbar.style.height = "0px";
+      setNavInert(!desktopNav.matches);
+      if (restoreFocus) toggleMenu.focus();
+    };
+
+    const openMenu = () => {
+      if (!toggleMenu || !navbar || !overlayNav) return;
+      toggleMenu.setAttribute("data-open-nav", "true");
+      toggleMenu.setAttribute("aria-expanded", "true");
+      toggleMenu.setAttribute("aria-label", "Tutup menu navigasi");
+      overlayNav.setAttribute("data-is-visible", "true");
+      document.body.classList.add("!overflow-y-hidden");
+      setNavInert(false);
+      navbar.style.height = `${navbar.scrollHeight}px`;
+      navbar.querySelector<HTMLAnchorElement>("a")?.focus();
+    };
+
+    const syncNavForViewport = () => {
+      if (!toggleMenu || !navbar || !overlayNav) return;
+      if (desktopNav.matches) {
+        navbar.style.height = "";
+        setNavInert(false);
         toggleMenu.setAttribute("data-open-nav", "false");
+        toggleMenu.setAttribute("aria-expanded", "false");
+        toggleMenu.setAttribute("aria-label", "Buka menu navigasi");
         overlayNav.setAttribute("data-is-visible", "false");
         document.body.classList.remove("!overflow-y-hidden");
+        return;
+      }
+
+      const isOpen = toggleMenu.getAttribute("data-open-nav") === "true";
+      if (!isOpen) {
         navbar.style.height = "0px";
+        setNavInert(true);
       }
     };
 
-    if (toggleMenu) {
-      toggleMenu.addEventListener("click", (e) => {
-        e.preventDefault();
-        if (toggleMenu.getAttribute("data-open-nav") === "false") {
-          toggleMenu.setAttribute("data-open-nav", "true");
-          overlayNav.setAttribute("data-is-visible", "true");
-          document.body.classList.add("!overflow-y-hidden");
-          navbar.style.height = `${navbar.scrollHeight}px`;
-        } else {
-          closeMenu();
-        }
+    if (toggleMenu && navbar && overlayNav) {
+      syncNavForViewport();
+
+      toggleMenu.addEventListener("click", (event) => {
+        event.preventDefault();
+        const isOpen = toggleMenu.getAttribute("data-open-nav") === "true";
+        if (isOpen) closeMenu();
+        else openMenu();
       });
 
-      // Close menu when clicking on nav links
-      const navLinks = navbar.querySelectorAll("a[href^='#']");
-      navLinks.forEach((link) => {
+      navbar.querySelectorAll("a[href^='#']").forEach((link) => {
         link.addEventListener("click", () => {
-          // Delay closing menu slightly to ensure navigation works
-          setTimeout(closeMenu, 100);
+          window.setTimeout(() => closeMenu(), 100);
         });
       });
 
-      overlayNav.addEventListener("click", () => {
-        closeMenu();
+      overlayNav.addEventListener("click", () => closeMenu());
+
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          toggleMenu.getAttribute("data-open-nav") === "true"
+        ) {
+          closeMenu(true);
+        }
       });
+
+      desktopNav.addEventListener("change", syncNavForViewport);
     }
   </script>
   <script>
-    // Scroll Reveal Animation
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-        }
-      });
-    }, { threshold: 0.15 });
+    const revealElements = Array.from(
+      document.querySelectorAll<HTMLElement>(".reveal")
+    );
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    if (revealElements.length) {
+      if (reduceMotion || !("IntersectionObserver" in window)) {
+        revealElements.forEach((element) => element.classList.add("active"));
+      } else {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        revealElements.forEach((element) => revealObserver.observe(element));
+      }
+    }
   </script>
 </html>

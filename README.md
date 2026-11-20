@@ -73,7 +73,7 @@ Sistem katalog produk dirancang agar mudah diperbarui tanpa mengubah struktur ko
 **2.** Letakkan file gambar ke dalam folder berikut:
 
 ```
-public/products/
+src/assets/products/
 ```
 
 **3.** Buka file konfigurasi data di:
@@ -82,14 +82,14 @@ public/products/
 src/utils/data.ts
 ```
 
-**4.** Cari bagian array `products`, lalu isi properti `image` dengan nama file gambar:
+**4.** Cari bagian array `rawProducts`, lalu isi properti `image` dengan nama file gambar:
 
 ```ts
 // Jika foto tersedia:
-image: "pintu-lipat.jpg"
+image: "pintu-lipat.webp"
 
 // Jika foto belum tersedia, biarkan kosong:
 image: ""
 ```
 
-> 💡 **Tips**: Gunakan nama file yang deskriptif dan hindari spasi — gunakan tanda hubung (`-`) sebagai pemisah kata, misalnya `jendela-casement.jpg`.
+> 💡 **Tips**: Gunakan nama file yang deskriptif dan hindari spasi — gunakan tanda hubung (`-`) sebagai pemisah kata, misalnya `jendela-casement.webp`. Format `.webp` disarankan; gambar akan otomatis dioptimalkan (srcset + WebP) saat build.

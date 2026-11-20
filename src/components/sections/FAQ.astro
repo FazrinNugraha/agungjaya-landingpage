@@ -31,7 +31,7 @@ const { className } = Astro.props;
         faqs.map((faq: FAQProps) => {
           return (
             <div class="py-5 px-5 hover:bg-slate-200 dark:hover:bg-slate-800">
-              <details class="group">
+              <details class="group" name="faq">
                 <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-heading-1">
                   <span>{faq.question}</span>
                   <span class="transition group-open:rotate-180 ">

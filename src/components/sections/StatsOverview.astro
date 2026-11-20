@@ -1,5 +1,7 @@
 ---
 import Container from "../shared/Container.astro";
+import { Image } from "astro:assets";
+import kolaseImage from "../../assets/products/kolase2.webp";
 ---
 
 <section class="relative pt-16 md:pt-20 pb-12 reveal">
@@ -12,8 +14,8 @@ import Container from "../shared/Container.astro";
         <h2
           class="text-heading-1 text-3xl sm:text-4xl md:text-[2.75rem] font-bold mt-2 leading-[1.2]"
         >
-          <span class="text-primary">Bukti Nyata </span> Pekerjaan <br />
-          Kami <span class="text-secondary">Dipercaya Ratusan Rumah</span>
+          <span class="text-primary-text">Bukti Nyata </span> Pekerjaan <br />
+          Kami <span class="text-amber-700 dark:text-secondary">Dipercaya Ratusan Rumah</span>
         </h2>
       </div>
       <div class="col-span-1 lg:col-span-6 lg:pl-10">
@@ -39,7 +41,7 @@ import Container from "../shared/Container.astro";
             10K+
           </h3>
           <p class="text-xs sm:text-sm md:text-base text-blue-100 font-medium">
-            Followers on TikTok
+            Pengikut TikTok
           </p>
         </div>
         <!-- Stat 2 -->
@@ -121,14 +123,16 @@ import Container from "../shared/Container.astro";
         <div
           class="w-auto sm:w-1/2 aspect-square sm:aspect-auto sm:h-96 relative mx-6 sm:mx-4 md:mx-6 sm:ml-0 rounded-[2rem] overflow-hidden flex items-center justify-center shadow-sm"
         >
-          <img 
-            src="/products/kolase2.webp" 
-            alt="Kolase Proyek" 
+          <Image
+            src={kolaseImage}
+            alt="Kolase proyek aluminium Agung Jaya"
+            widths={[400, 600, 800]}
+            sizes="(min-width: 640px) 25vw, 80vw"
+            format="webp"
+            quality={70}
             loading="lazy"
             decoding="async"
-            width="600"
-            height="600"
-            class="w-full h-full object-cover" 
+            class="w-full h-full object-cover"
           />
         </div>
 

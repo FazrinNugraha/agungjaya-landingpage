@@ -1,7 +1,4 @@
-// Deleted missing image imports
-// import visibilityDilemma from "../assets/images/visibility-dilemma.jpg";
-// import engagementGap from "../assets/images/engagement-gap.jpg";
-// import resultsInHibernation from "../assets/images/results-in-hibernation.jpg";
+import type { ImageMetadata } from "astro";
 
 const faqs = [
   {
@@ -46,19 +43,33 @@ const faqs = [
  *  KATALOG PRODUK - CARA MENAMBAH / MENGGANTI FOTO:
  * =============================================================
  *
- *  1. Taruh foto ke folder:  public/products/
- *     Contoh: public/products/pintu-lipat.jpg
+ *  1. Taruh foto ke folder:  src/assets/products/
+ *     Contoh: src/assets/products/pintu-lipat.webp
  *
  *  2. Tulis nama file foto di bawah pada bagian "image":
- *     image: "pintu-lipat.jpg"
+ *     image: "pintu-lipat.webp"
  *
  *  3. Kalau belum ada fotonya, kosongkan saja:
  *     image: ""
  *
- *  SELESAI! Tidak perlu import apapun.
+ *  SELESAI! Gambar akan otomatis dioptimalkan (srcset + WebP).
  * =============================================================
  */
-const products = [
+const productImageModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/products/*.webp",
+  { eager: true }
+);
+
+function resolveProductImage(file: string): ImageMetadata | null {
+  if (!file) return null;
+  return productImageModules[`../assets/products/${file}`]?.default ?? null;
+}
+
+const rawProducts: Array<{
+  title: string;
+  description: string;
+  image: string;
+}> = [
   {
     title: "Pintu Lipat Aluminium",
     description:
@@ -156,5 +167,14 @@ const products = [
     image: "sliding-2pintu.webp",
   },
 ];
+
+const products: Array<{
+  title: string;
+  description: string;
+  image: ImageMetadata | null;
+}> = rawProducts.map((product) => ({
+  ...product,
+  image: resolveProductImage(product.image),
+}));
 
 export { faqs, products };
